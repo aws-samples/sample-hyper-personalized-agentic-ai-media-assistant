@@ -1,0 +1,65 @@
+.builder-flix-logo {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: var(--amplify-space-large);
+}
+
+.builder-flix-logo img {
+  width: 300px;
+  height: auto;
+  margin: 48px 0px 0px;
+  max-width: 100%;
+}
+
+:root {
+  --amplify-fonts-default-variable: 'Open Sans';
+  --amplify-fonts-default-static: 'Open Sans';
+  --amplify-colors-brand-primary-shadow: #87CBDC;
+  --amplify-colors-brand-primary-10: #feffc9;
+  --amplify-colors-brand-primary-20: #feffc0;
+  --amplify-colors-brand-primary-40: #fdffb6;
+  --amplify-colors-brand-primary-60: #fdffac;
+  --amplify-colors-brand-primary-80: #fdffac;
+  --amplify-colors-brand-primary-90: #fdffa1;
+  --amplify-colors-brand-primary-100: #fcff8b;
+  color-scheme: dark;
+}
+
+[data-amplify-authenticator] {
+  --amplify-components-authenticator-router-box-shadow: 0 0 100px var(--amplify-colors-brand-primary-shadow);
+  --amplify-components-authenticator-router-border-width: 0;
+  --amplify-components-authenticator-form-padding: var(--amplify-space-medium) var(--amplify-space-xl) var(--amplify-space-xl);
+  --amplify-components-button-primary-background-color: var(--amplify-colors-brand-primary-20);
+  --amplify-components-button-primary-hover-background-color: #666633 !important;
+  --amplify-components-fieldcontrol-focus-box-shadow: 0 0 0 2px var(--amplify-colors-brand-primary-60);
+  --amplify-components-tabs-item-active-border-color: var(--amplify-colors-neutral-100);
+  --amplify-components-tabs-item-color: var(--amplify-colors-brand-primary-10);
+  --amplify-components-tabs-item-active-color: var(--amplify-colors-brand-primary-80);
+  --amplify-components-button-link-color: var(--amplify-colors-brand-primary-20);
+  --amplify-components-button-link-hover-color: #666633 !important;
+}
+
+[data-amplify-authenticator] [data-amplify-router] {
+  background-color: #1a1a1a !important;
+}
+
+[data-amplify-authenticator] .amplify-label {
+  color: #ffffff !important;
+  text-align: left !important;
+}
+
+[data-amplify-authenticator] .amplify-heading {
+  color: #ffffff !important;
+}
+
+[data-amplify-authenticator] .amplify-button--primary {
+  color: #000000 !important;
+}
+
+[data-amplify-authenticator] .amplify-button--link {
+  font-weight: var(--amplify-font-weights-normal) !important;
+}
+
+[data-amplify-authenticator] [data-amplify-footer] {
+  padding-top: var(--amplify-space-small) !important;
+}

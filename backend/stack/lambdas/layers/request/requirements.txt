@@ -1,0 +1,6 @@
+# Main packages
+requests
+requests-aws4auth
+opensearch-py
+numpy
+scipy
