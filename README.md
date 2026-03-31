@@ -254,4 +254,4 @@ See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more inform
 This library is licensed under the MIT-0 License. See the LICENSE file.
 
 ## Contrbutors
-Thanks to Arturo Velasco, Daryl Cartwright, George Vasels, Juan Andres Caycedo, Vince Palazzo, Wei teh and Tulip Gupta for their contributions. 
+Thanks to Arturo Velasco, Daryl Cartwright, George Vasels, Juan Andres Caycedo, Vince Palazzo, Wei Teh and Tulip Gupta for their contributions. 
