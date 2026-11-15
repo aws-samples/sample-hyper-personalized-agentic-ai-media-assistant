@@ -6,7 +6,7 @@ the deployment's `catalog` search index; `load_media.py` uploads the posters.
 
 | File | Titles | Source | Licence |
 |------|--------|--------|---------|
-| `movie_dataset.json` | 500 synthetic movies, `tt1001001`–`tt1001500` | [sample-hyper-personalized-agentic-ai-media-assistant](https://github.com/aws-samples/sample-hyper-personalized-agentic-ai-media-assistant) (`data/movie_dataset.json`), unchanged | MIT-0 |
+| `movie_dataset.json` | 500 synthetic movies, `tt1001001`–`tt1001500` | [sample-hyper-personalized-agentic-ai-media-assistant v1](https://github.com/aws-samples/sample-hyper-personalized-agentic-ai-media-assistant/tree/v1) (`data/movie_dataset.json`), unchanged | MIT-0 |
 | `exclusive_movie_dataset.json` | *Tears of Steel* (2012), `tt2285752` | same repository (`data/exclusive_movie_dataset.json`), unchanged | Film and poster: CC BY 3.0, (c) Blender Foundation, [mango.blender.org](https://mango.blender.org) |
 | `microdrama_dataset.json` | 8 vertical micro-dramas, `md0000001`–`md0000008` | made for this demo | AI-generated demo content, released with this repository |
 | `posters.zip` | `posters/<file>.jpg` for every title above | v1 poster set (400x400), the micro-drama posters, and the Tears of Steel poster resized to 400 px wide | as the title it belongs to |

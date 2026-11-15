@@ -1,10 +1,16 @@
 # Hyper-Personalized Movie Assistant
 
+> **Looking for version 1?** This `main` branch now holds version 2 of the solution. The version 1 code, which the original blog post refers to, is on the [`v1` branch](https://github.com/aws-samples/sample-hyper-personalized-agentic-ai-media-assistant/tree/v1) (also tagged [`v1.0.0`](https://github.com/aws-samples/sample-hyper-personalized-agentic-ai-media-assistant/releases/tag/v1.0.0)). To get it: `git clone -b v1 https://github.com/aws-samples/sample-hyper-personalized-agentic-ai-media-assistant.git`
+
 A streaming demo that personalizes search, home rows, clips and live sports from one unified viewer profile. The assistants run on [Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/) Runtime and are built with [Strands Agents](https://strandsagents.com/). The whole stack deploys with CDK from one environment file (`infra/environments/<name>.json`, copied from `example.json`). All demo data ships in this repository: a synthetic movie catalog with posters, AI-generated micro-dramas, and a synthetic football match with its video.
+
+![Home screen for the Action Fan profile: a top pick, My List and Top Picks for You rows of synthetic catalog titles](docs/screenshots/home-action-fan.jpg)
+
+*Home for the Action Fan profile. The top pick and rows come from that profile's taste; posters are from the synthetic catalog.*
 
 ## What's new in v2
 
-Version 1 of this sample is on the [`main` branch](https://github.com/aws-samples/sample-hyper-personalized-agentic-ai-media-assistant/tree/main): a speech-to-speech movie recommendation assistant with Amazon Nova Sonic and a synthetic movie catalog. Version 2 keeps that catalog and adds:
+Version 1 of this sample is on the [`v1` branch](https://github.com/aws-samples/sample-hyper-personalized-agentic-ai-media-assistant/tree/v1): a speech-to-speech movie recommendation assistant with Amazon Nova Sonic and a synthetic movie catalog. Version 2 keeps that catalog and adds:
 
 - **A unified viewer profile** shared by every surface: measured session behaviour (L1), learned taste with up to three taste centroids (L2) and declared preferences and limits (L3), fed by a viewing-event stream.
 - **A new recommendation agent** on Amazon Bedrock AgentCore Runtime with Strands Agents: one structured understanding step, rule-based routing to filtered hybrid search, prompt-cached shard fan-out or taste retrieval, and a taste-aware rerank.
@@ -109,7 +115,7 @@ The deployment bills by the hour while it exists, mainly the OpenSearch Serverle
 1. Get the code and install the dependencies:
 
    ```bash
-   git clone -b v2 https://github.com/aws-samples/sample-hyper-personalized-agentic-ai-media-assistant.git
+   git clone https://github.com/aws-samples/sample-hyper-personalized-agentic-ai-media-assistant.git
    cd sample-hyper-personalized-agentic-ai-media-assistant
    python3.12 -m venv .venv
    .venv/bin/python -m pip install -r infra/deployment/requirements.txt pytest
@@ -174,7 +180,7 @@ The pytest suite covers the agent pipeline, the profile layers, the events proce
 
 ## Scene analysis (optional): Tears of Steel
 
-Scene-level analysis ("ask about this scene") is enabled for one film, [Tears of Steel](https://mango.blender.org/), (c) Blender Foundation, licensed under [Creative Commons Attribution 3.0](https://creativecommons.org/licenses/by/3.0/). It is in the catalog (`tt2285752`) and on the Action Fan's Home rows. The film itself is not stored in this repository; two notebooks in `notebooks/tears-of-steel/` set it up after you deploy. They follow the v1 sample's [`bda-video.ipynb`](https://github.com/aws-samples/sample-hyper-personalized-agentic-ai-media-assistant/blob/main/backend/tools/bda-video.ipynb) and [`script_analysis.ipynb`](https://github.com/aws-samples/sample-hyper-personalized-agentic-ai-media-assistant/blob/main/backend/tools/script_analysis.ipynb), and find every resource from your environment file and the stack outputs.
+Scene-level analysis ("ask about this scene") is enabled for one film, [Tears of Steel](https://mango.blender.org/), (c) Blender Foundation, licensed under [Creative Commons Attribution 3.0](https://creativecommons.org/licenses/by/3.0/). It is in the catalog (`tt2285752`) and on the Action Fan's Home rows. The film itself is not stored in this repository; two notebooks in `notebooks/tears-of-steel/` set it up after you deploy. They follow the v1 sample's [`bda-video.ipynb`](https://github.com/aws-samples/sample-hyper-personalized-agentic-ai-media-assistant/blob/v1/backend/tools/bda-video.ipynb) and [`script_analysis.ipynb`](https://github.com/aws-samples/sample-hyper-personalized-agentic-ai-media-assistant/blob/v1/backend/tools/script_analysis.ipynb), and find every resource from your environment file and the stack outputs.
 
 1. **`1-video-scenes.ipynb`** downloads the film from an official Blender mirror (checksum verified), converts it to `tears-of-steel.mp4`, uploads it to `s3://<mediaBucket>/clips/movies/` and adds it to the video mapping table, so it plays. It then analyses the film with Bedrock Data Automation, optionally recognizes celebrities in one frame per shot with Rekognition, and writes the `chapters`, `segments` and `audio-segments` indexes. About 10 minutes.
 2. **`2-script-knowledge-base.ipynb`** (optional) adds the film's script to the stack's Knowledge Base, for answers grounded in it. Download the script from [Blender Studio](https://studio.blender.org/projects/tears-of-steel/55f344892beb3300251b0172/?asset=34) first (free registration); it is not redistributed here.
@@ -200,7 +206,7 @@ The user must sign in again for the change to apply. For members of the group:
 
 | Data | Location | Source |
 |---|---|---|
-| Movie catalog (500 titles) and posters | `data/catalog/movie_dataset.json`, `posters.zip` | Synthetic, from [sample-hyper-personalized-agentic-ai-media-assistant](https://github.com/aws-samples/sample-hyper-personalized-agentic-ai-media-assistant) (MIT-0) |
+| Movie catalog (500 titles) and posters | `data/catalog/movie_dataset.json`, `posters.zip` | Synthetic, from [sample-hyper-personalized-agentic-ai-media-assistant v1](https://github.com/aws-samples/sample-hyper-personalized-agentic-ai-media-assistant/tree/v1) (MIT-0) |
 | Tears of Steel | `data/catalog/exclusive_movie_dataset.json` | (c) Blender Foundation, [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) |
 | Micro-dramas (8) | `data/catalog/microdrama_dataset.json`, `data/media/microdramas-*.zip` | AI-generated for this demo |
 | Football match | `data/media/football-*.zip`, `backend/live-sports-agent/data/` | Sample footage; teams, players, events and captions are fictional |
