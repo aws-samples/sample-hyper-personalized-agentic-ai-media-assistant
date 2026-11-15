@@ -1,0 +1,49 @@
+.env
+.env.*
+!.env.example
+!.env.*.example
+.venv
+node_modules/
+__pycache__/
+.pytest_cache/
+*.log
+cdk.out/
+*.tsbuildinfo
+.DS_Store
+test.sh
+.bedrock_agentcore/
+.bedrock_agentcore.yaml
+test_invoke.py
+traces/
+repl_state/
+test_search.py
+repl_state.pkl
+test.py
+test_harness/results/
+debug/
+test_results_*
+.vscode/
+slides/
+
+# Local source media, never committed. The shipped media are the zips under
+# data/ (uploaded by infra/deployment/load_media.py); extracted copies stay local.
+/media/
+data/media/*/
+data/catalog/posters/
+
+# Generated deployment artifacts (per environment).
+frontend/dist-deploy/
+infra/.artifacts/
+
+# Local CDK CLI install from the README.
+.cdk-cli/
+
+# Deployment configs hold your account id: only the example is tracked.
+infra/environments/*.json
+!infra/environments/example.json
+
+# Local-only docs backup (blog figures, internal notes) -- not published.
+/docs/backup/
+
+# Local scratch notes/experiments -- never committed.
+/scratch/

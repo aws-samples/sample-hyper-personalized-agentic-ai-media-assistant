@@ -1,0 +1,24 @@
+{
+  "description": "Extra spellings and nicknames the roster data does not contain (\"hcf\", \"the harbor\"), keyed by entity id. Surname and initial-surname spellings are generated, so they do not belong here.",
+  "aliases": {
+    "team:harbor-city-fc": [
+      "harbor city",
+      "harbor",
+      "hcf",
+      "the harbor"
+    ],
+    "team:redcliffe-athletic": [
+      "redcliffe",
+      "rca",
+      "redcliffe ath",
+      "the cliffs"
+    ],
+    "player:kofi-asante-brook": [
+      "asante brook",
+      "kofi"
+    ],
+    "player:desmond-okafor-hale": [
+      "okafor hale"
+    ]
+  }
+}

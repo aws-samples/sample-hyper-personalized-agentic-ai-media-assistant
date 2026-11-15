@@ -1,0 +1,495 @@
+/* ============================================================
+   Sports entry — compact "live event" modal.
+   Desktop: centered card. Mobile: bottom sheet.
+   ============================================================ */
+
+.sports-entry {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.se-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.66);
+  backdrop-filter: blur(4px);
+}
+
+.se-modal {
+  position: relative;
+  z-index: 1;
+  width: min(560px, 92vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--bg-2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-lg);
+  scrollbar-width: none;
+  animation: fadeUp 0.28s ease;
+}
+.se-modal::-webkit-scrollbar {
+  display: none;
+}
+
+.se-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+}
+
+/* Preview "screen" */
+.se-preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.se-preview-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 55%);
+}
+.se-live {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+}
+.se-scorebug {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(10, 10, 14, 0.7);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 6px 10px;
+  backdrop-filter: blur(10px);
+}
+.se-sb-team {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  color: #fff;
+}
+/* Score-only readout (crests already live in the split art behind — no dupes). */
+.se-sb-score {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 20px;
+  color: #fff;
+}
+.se-sb-dash {
+  opacity: 0.55;
+}
+.se-sb-logo {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  font-weight: 900;
+  color: #fff;
+}
+.se-sb-clock {
+  font-size: var(--small);
+  font-weight: 700;
+  color: var(--live);
+  padding-left: 10px;
+  border-left: 1px solid var(--border-strong);
+}
+.se-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #0c0e14;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.12s ease;
+}
+.se-play:hover {
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+/* Body */
+.se-body {
+  padding: 18px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.se-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.se-league {
+  font-size: var(--small);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+}
+.se-viewers {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--small);
+  color: var(--text-lo);
+}
+.se-title {
+  font-family: var(--font-display);
+  font-size: var(--title-lg);
+  font-weight: 800;
+  line-height: 1.1;
+}
+.se-vs {
+  color: var(--text-lo);
+  font-weight: 600;
+  margin: 0 4px;
+}
+.se-status {
+  font-size: var(--small);
+  color: var(--text-lo);
+  margin-top: -4px;
+}
+
+/* Actions — Join Live is the clear primary */
+.se-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+.se-join {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 999px;
+  background: #fff;
+  color: #0c0e14;
+  font-weight: 800;
+  font-size: var(--body);
+  transition: transform 0.12s ease;
+}
+.se-join:hover {
+  transform: translateY(-1px);
+}
+.se-actions-row {
+  display: flex;
+  gap: 10px;
+}
+.se-secondary {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px;
+  border-radius: 999px;
+  background: var(--bg-3);
+  color: var(--text-hi);
+  border: 1px solid var(--border);
+  font-weight: 700;
+  font-size: var(--small);
+}
+.se-secondary.ai {
+  background: var(--ai-grad);
+  color: #fff;
+  border-color: transparent;
+}
+.se-secondary.ai.on {
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.55);
+}
+
+/* AI recap */
+.ai-recap {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.18), rgba(182, 79, 255, 0.06));
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  border-radius: var(--r-md);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  animation: fadeUp 0.3s ease;
+}
+.ai-recap p {
+  font-size: var(--body);
+  line-height: 1.5;
+  color: var(--text-hi);
+}
+
+/* Key Moments */
+.se-moments {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+.se-moments-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.se-moments-head h3 {
+  font-size: var(--title-md);
+  font-weight: 700;
+}
+.se-moments-head span {
+  font-size: var(--small);
+  color: var(--text-lo);
+}
+.se-moments-rail {
+  position: relative;
+}
+.se-moments-track {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin: 0 -20px;
+  padding: 0 20px 4px;
+}
+/* Netflix-style hover arrows for the Key Moments rail (TV/desktop). The rail
+   bleeds to the modal edges (track margin: 0 -20px), so the arrows sit at
+   -20px to line up with the true visible edges. */
+.se-rail-arrow {
+  position: absolute;
+  top: 0;
+  bottom: 4px;
+  width: 46px;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.se-moments-rail:hover .se-rail-arrow {
+  opacity: 1;
+}
+.se-rail-arrow.left {
+  left: -20px;
+  justify-content: flex-start;
+  padding-left: 4px;
+  border-radius: 8px 0 0 8px;
+  background: linear-gradient(90deg, var(--bg-2) 15%, rgba(0, 0, 0, 0) 100%);
+}
+.se-rail-arrow.right {
+  right: -20px;
+  justify-content: flex-end;
+  padding-right: 4px;
+  border-radius: 0 8px 8px 0;
+  background: linear-gradient(270deg, var(--bg-2) 15%, rgba(0, 0, 0, 0) 100%);
+}
+.se-rail-arrow svg {
+  width: 26px;
+  height: 26px;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+  transition: transform 0.12s ease;
+}
+.se-rail-arrow:hover svg {
+  transform: scale(1.18);
+}
+.se-moments-track::-webkit-scrollbar {
+  display: none;
+}
+.se-moment {
+  flex: none;
+  width: 150px;
+  text-align: left;
+  transition: transform 0.14s ease;
+}
+.se-moment:hover {
+  transform: translateY(-3px);
+}
+.se-moment-art {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+/* Real thumbnail image (key-moment still); 16:9 to match the gradient poster. */
+.se-moment-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.se-moment-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 45%);
+  pointer-events: none;
+}
+.se-moment-goal {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: #fff;
+  background: var(--live);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.se-moment-clock {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 7px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+.se-moment-clock.score,
+.se-moment-clock.goal {
+  background: var(--live);
+}
+.se-moment-play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  opacity: 0.9;
+}
+.se-moment-label {
+  font-size: var(--small);
+  font-weight: 600;
+  color: var(--text-mid);
+  margin-top: 6px;
+  line-height: 1.3;
+  /* Reserve two lines so tiles with a one-line label align with two-line ones
+     (the thumbnail sits at the same height across the rail). Longer labels are
+     clamped to two lines. */
+  min-height: calc(2 * 1.3em);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Loading skeletons shown while the Key Moments fetch is in flight, so the
+   mock plays don't flash before the real thumbnails arrive. */
+.se-moment-skeleton {
+  pointer-events: none;
+}
+.se-skel-box {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+}
+.se-skel-line {
+  display: block;
+  width: 70%;
+  height: 10px;
+  margin-top: 8px;
+  border-radius: 4px;
+}
+.se-skel-box,
+.se-skel-line {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.06) 25%,
+    rgba(255, 255, 255, 0.14) 37%,
+    rgba(255, 255, 255, 0.06) 63%
+  );
+  background-size: 400% 100%;
+  animation: se-skel-shimmer 1.4s ease infinite;
+}
+@keyframes se-skel-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* ---------- Mobile: bottom sheet ---------- */
+.device-mobile .sports-entry {
+  align-items: flex-end;
+}
+.device-mobile .se-modal {
+  width: 100%;
+  max-width: 100%;
+  max-height: 92vh;
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  border-bottom: none;
+}
+
+/* "Catch up on key plays, then go live" — secondary-prominent CTA. */
+.se-catchup-live {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px 9px;
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 12px;
+  font-size: var(--body);
+  font-weight: 700;
+  color: var(--text-hi, #fff);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  cursor: pointer;
+  transition: background 0.14s ease, border-color 0.14s ease;
+}
+.se-catchup-live:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+.se-catchup-sub {
+  flex-basis: 100%;
+  text-align: center;
+  font-size: var(--small);
+  font-weight: 500;
+  color: var(--text-lo);
+}
+
+/* Favorite-player star on a Key Moments tile (top-right of the thumbnail). */
+.se-moment-star {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 0.85rem;
+  color: var(--accent, #e8a838);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}

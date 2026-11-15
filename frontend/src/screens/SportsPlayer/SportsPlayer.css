@@ -1,0 +1,1064 @@
+.sports-player {
+  position: fixed;
+  inset: 0;
+  z-index: 62;
+  background: #000;
+}
+.sports-stage {
+  position: absolute;
+  inset: 0;
+}
+.sports-bg {
+  position: absolute;
+  inset: 0;
+}
+.sports-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+}
+/* On mobile the game is the 16:9 horizontal rendition — letterbox it so the
+   full frame shows in portrait and fills the screen when the phone is rotated
+   (rotate-to-watch), rather than cropping the sides. */
+.sports-player.mobile .sports-video {
+  object-fit: contain;
+}
+.sports-player .player-scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 34%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 20%);
+}
+
+/* Top bar */
+.sports-top {
+  position: absolute;
+  top: 16px;
+  left: 14px;
+  right: 14px;
+  z-index: 7;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.sports-player .player-back {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  flex: none;
+}
+.sports-league {
+  font-size: var(--small);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* ---- Score bug ---- */
+.scorebug {
+  position: absolute;
+  z-index: 6;
+  top: 70px;
+  left: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(10, 10, 14, 0.72);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 8px 12px;
+  backdrop-filter: blur(10px);
+}
+.sb-team {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.sb-logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 900;
+  color: #fff;
+}
+.sb-score {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  min-width: 22px;
+  text-align: center;
+}
+.sb-clock {
+  font-size: var(--small);
+  font-weight: 700;
+  color: var(--live);
+  padding-left: 10px;
+  border-left: 1px solid var(--border-strong);
+}
+.device-tv .sb-score {
+  font-size: 26px;
+}
+
+/* ---- Bottom controls + key-play timeline ---- */
+.sports-controls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 6;
+  padding: var(--pad);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+}
+.sports-keyplays {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.skp-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.skp-label {
+  font-size: var(--small);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.04em;
+}
+.skp-time {
+  font-size: var(--small);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  font-variant-numeric: tabular-nums;
+}
+.sports-timeline {
+  position: relative;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  cursor: pointer;
+}
+/* Bigger hit target than the visible 6px bar. */
+.sports-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -8px;
+  bottom: -8px;
+}
+.stl-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+}
+.stl-mark {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  background: var(--text-mid);
+  border: none;
+  padding: 0;
+}
+/* Clickable goal markers (live match). */
+button.stl-mark {
+  cursor: pointer;
+  width: 11px;
+  height: 11px;
+  z-index: 2;
+}
+button.stl-mark:hover {
+  transform: translate(-50%, -50%) scale(1.35);
+}
+.stl-mark.scored {
+  background: var(--live);
+  box-shadow: 0 0 8px rgba(255, 107, 107, 0.7);
+}
+.stl-knob {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.controls-left,
+.controls-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sports-player .ctrl-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(6px);
+}
+.sports-player .ctrl-btn.primary {
+  background: #fff;
+  color: #0c0e14;
+}
+.sports-player .ctrl-btn.on {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.live-edge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: var(--small);
+  font-weight: 700;
+  color: #fff;
+  margin-left: 6px;
+}
+.le-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--live);
+  animation: pulse 1.4s infinite;
+}
+
+/* ---- Stats panel (solid right rail pushes the stage) ---- */
+.sports-player.tv.with-stats .sports-stage {
+  right: 400px;
+}
+.stats-panel.tv {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  background: var(--bg-1);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  z-index: 8;
+}
+.stats-panel.mobile {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 58%;
+  background: var(--bg-1);
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  border-top: 1px solid var(--border-strong);
+  box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  z-index: 8;
+}
+.drawer-handle {
+  width: 40px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--bg-4);
+  margin: 10px auto 4px;
+}
+/* Tap the handle to dismiss the sheet; the transparent padding widens the tap
+   target while background-clip keeps the visible pill at 40x4. */
+.drawer-handle-btn {
+  border: none;
+  cursor: pointer;
+  box-sizing: content-box;
+  padding: 8px 24px;
+  background-clip: content-box;
+}
+/* Explicit close (X) in the stats tab row on mobile. */
+.stats-close {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  background: none;
+  border: none;
+  color: var(--text-mid);
+  cursor: pointer;
+}
+.stats-close:hover {
+  color: var(--text-hi);
+}
+.stats-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 14px var(--pad);
+  border-bottom: 1px solid var(--border);
+}
+.stab {
+  font-size: var(--small);
+  font-weight: 700;
+  color: var(--text-lo);
+  padding: 7px 12px;
+  border-radius: 999px;
+}
+.stab.on {
+  background: var(--bg-3);
+  color: var(--text-hi);
+}
+.stats-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px var(--pad) 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Player card */
+.pulse-card {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--team, var(--border));
+  border-radius: var(--r-md);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pulse-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pulse-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  color: #fff;
+  font-size: 13px;
+  flex: none;
+}
+/* Player-face variant: a circular crop that fills the avatar. The team-color
+   gradient stays as a backdrop while the image loads (or if it 404s). */
+.pulse-avatar.face {
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 0;
+  outline: 2px solid var(--team, transparent);
+  outline-offset: 2px;
+}
+.pulse-avatar.face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.pulse-id {
+  display: flex;
+  flex-direction: column;
+}
+.pulse-name {
+  font-weight: 700;
+  font-size: var(--body);
+}
+.hot-dot {
+  font-size: 0.85em;
+}
+.pulse-team {
+  font-size: var(--small);
+  color: var(--text-lo);
+}
+.pulse-rating {
+  margin-left: auto;
+  color: var(--warn);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+.pulse-line {
+  font-size: var(--body);
+  font-weight: 700;
+  color: var(--text-hi);
+}
+.pulse-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--small);
+  color: var(--text-mid);
+}
+.form-bar {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--bg-3);
+  overflow: hidden;
+}
+.form-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--hot), var(--warn));
+}
+.pulse-form b {
+  color: var(--text-hi);
+}
+
+/* Play-by-play */
+.pbp-head {
+  font-size: var(--small);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-lo);
+}
+.pbp {
+  display: flex;
+  flex-direction: column;
+}
+.pbp-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.pbp-clock {
+  font-size: var(--small);
+  font-weight: 700;
+  color: var(--text-lo);
+  min-width: 58px;
+  font-variant-numeric: tabular-nums;
+}
+.pbp-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  margin-top: 3px;
+  flex: none;
+}
+.pbp-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.pbp-label {
+  font-size: var(--small);
+  font-weight: 700;
+  color: var(--text-hi);
+}
+.pbp-row.goal .pbp-label,
+.pbp-row.score .pbp-label {
+  color: var(--live);
+}
+.pbp-star {
+  margin-left: 6px;
+  color: var(--accent, #e8a838);
+  font-size: 0.85em;
+}
+.pbp-play {
+  margin-left: auto;
+  align-self: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  cursor: pointer;
+  transition: background 0.14s ease, border-color 0.14s ease;
+}
+.pbp-play:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #fff;
+}
+.pbp-detail {
+  font-size: var(--small);
+  color: var(--text-lo);
+  line-height: 1.35;
+}
+
+/* Don't reserve the tall gap above the controls — overlay them instead. */
+.sports-player.view-single .main-playercontrols {
+  padding-top: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* ==================== Match Assistant ==================== */
+/* The chat itself reuses the movie scene assistant's components/classes
+   (.voice-panel on TV, .voice-chat mini-player + .chat-thread on mobile,
+   .composer, .chat-bubble, .assistant-avatar, .typing) so the two assistants
+   look and behave identically. Only the trigger tint is scoped here so it wins
+   over the sports .ctrl-btn background. */
+.sports-player .ctrl-btn.voice-trigger {
+  background: var(--ai-grad);
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.45);
+}
+.sports-player .ctrl-btn.voice-trigger:hover {
+  filter: brightness(1.08);
+}
+
+/* Mobile: chat as a bottom sheet OVER the live player (video stays mounted so
+   the playhead is continuous). Mirrors the stats drawer dimensions. */
+.assistant-sheet.mobile {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 62%;
+  background: var(--bg-1);
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  border-top: 1px solid var(--border-strong);
+  box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  z-index: 8;
+}
+.assistant-sheet .chat-thread {
+  flex: 1;
+  min-height: 0;
+}
+
+/* ==================== Jump-to-goal rail (live match) ==================== */
+.jump-rail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.jump-label {
+  font-size: var(--small);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.8);
+  flex: none;
+}
+.jump-chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.jump-chips::-webkit-scrollbar {
+  display: none;
+}
+.jump-chip {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--live);
+  color: #fff;
+  font-size: var(--small);
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background 0.15s ease;
+}
+.jump-chip:hover {
+  background: var(--live);
+}
+.jump-chip .jc-min {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.85;
+}
+
+/* ===== Broadcast match header (scorebug) at the top of the Players tab ===== */
+.mh {
+  background: linear-gradient(180deg, var(--bg-2), rgba(26, 26, 36, 0.35));
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 16px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mh-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+.mh-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.mh-crest {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
+.mh-code {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+}
+.mh-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  padding: 0 10px;
+}
+.mh-score {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 34px;
+  line-height: 1;
+  color: var(--text-hi);
+  font-variant-numeric: tabular-nums;
+}
+.mh-score i {
+  color: var(--text-dim);
+  font-style: normal;
+  font-weight: 500;
+}
+.mh-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  white-space: nowrap;
+}
+.mh-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff3b3b;
+  box-shadow: 0 0 0 3px rgba(255, 59, 59, 0.18);
+  animation: mh-pulse 1.8s ease infinite;
+}
+@keyframes mh-pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+.mh-venue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-size: var(--small);
+  color: var(--text-mid);
+}
+
+/* ===== Team stats — comparative battle bars (home vs away) ===== */
+.team-stat-summary {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.tss-title {
+  font-size: var(--small);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-lo);
+}
+.tss-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tss-row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tss-row-top span {
+  color: var(--text-mid);
+  font-size: var(--small);
+  font-weight: 600;
+}
+.tss-row-top b {
+  color: var(--text-lo);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--body);
+  min-width: 24px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+.tss-row-top b.lead {
+  color: var(--text-hi);
+}
+/* Comparative "battle bar": home vs away, filled in team colours. */
+.tss-bar {
+  display: flex;
+  gap: 2px;
+  height: 7px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.tss-bar-h,
+.tss-bar-a {
+  height: 100%;
+  border-radius: 4px;
+  min-width: 3px;
+  transition: width 0.4s ease;
+}
+
+/* Personalized section label above the player list. */
+.players-label {
+  font-size: var(--small);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-lo);
+  margin-top: 2px;
+}
+
+/* ===================== Key Moments (hover-reveal) ===================== */
+/* Button lives in the top bar, pushed to the right; revealed on hovering the
+   game (always visible on touch devices, which have no hover). */
+.km-btn {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: var(--small);
+  font-weight: 700;
+  color: #fff;
+  background: rgba(12, 12, 16, 0.66);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.16s ease, transform 0.16s ease, background 0.16s ease;
+}
+.sports-stage:hover .km-btn,
+.km-btn:focus-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.km-btn:hover {
+  background: rgba(12, 12, 16, 0.9);
+  border-color: #fff;
+}
+@media (hover: none) {
+  .km-btn { opacity: 1; transform: none; }
+}
+
+/* Slide-in panel listing the moments. */
+.km-panel-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.35);
+}
+.km-panel {
+  width: min(440px, 90%);
+  height: 100%;
+  background: rgba(14, 14, 18, 0.97);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  box-shadow: -12px 0 40px rgba(0, 0, 0, 0.5);
+}
+.km-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.km-panel-head h3 {
+  margin: 0;
+  font-size: var(--title-sm, 1.05rem);
+  font-weight: 800;
+}
+.km-panel-close {
+  background: none;
+  border: none;
+  color: var(--text-mid);
+  cursor: pointer;
+  display: inline-flex;
+}
+.km-panel-close:hover { color: #fff; }
+.km-list {
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+/* Horizontal moment card: thumbnail left, readable text right (label off the
+   image), broadcast "key plays" list style. */
+.km-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-left: 3px solid transparent;
+  color: var(--text-hi);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.14s ease, border-color 0.14s ease, transform 0.14s ease;
+}
+.km-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(2px);
+}
+.km-item.fav {
+  border-left-color: var(--accent);
+  background: linear-gradient(90deg, var(--accent-soft), rgba(255, 255, 255, 0.04) 62%);
+}
+.km-thumb {
+  position: relative;
+  flex: none;
+  width: 132px;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-3);
+}
+.km-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.km-min {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  padding: 2px 7px;
+  border-radius: 5px;
+  font-size: 0.64rem;
+  font-weight: 800;
+  color: #fff;
+  background: rgba(8, 8, 12, 0.78);
+}
+.km-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.34);
+  opacity: 0;
+  transition: opacity 0.14s ease;
+}
+.km-item:hover .km-play {
+  opacity: 1;
+}
+.km-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  flex: 1;
+}
+.km-title {
+  font-size: var(--body);
+  font-weight: 700;
+  color: var(--text-hi);
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.km-star {
+  margin-left: 5px;
+  color: var(--accent);
+}
+.km-sub {
+  font-size: var(--small);
+  color: var(--text-lo);
+}
+
+/* ===== Favorite player (surfaced first in the Players tab) ===== */
+.pulse-card.favorite {
+  position: relative;
+  border: 1px solid var(--accent, #e8a838);
+  border-left: 3px solid var(--accent, #e8a838);
+  background: linear-gradient(180deg, var(--accent-soft), var(--bg-2) 58%);
+  box-shadow: 0 0 0 1px var(--accent, #e8a838), 0 8px 28px rgba(0, 0, 0, 0.4);
+  padding-top: 20px;
+}
+.pulse-card.favorite .pulse-avatar {
+  width: 52px;
+  height: 52px;
+  font-size: 15px;
+}
+.pulse-card.favorite .pulse-avatar.face {
+  outline-color: var(--accent, #e8a838);
+}
+.pulse-card.favorite .pulse-name {
+  font-size: calc(var(--body) + 2px);
+}
+.pulse-fav {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--accent-ink, #0b0b0f);
+  background: var(--accent, #e8a838);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Player card header as an expand/collapse toggle (when the player has clips). */
+button.pulse-head {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.pulse-count {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: var(--small);
+  font-weight: 700;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.pulse-chev {
+  transition: transform 0.16s ease;
+}
+.pulse-card.expanded .pulse-chev {
+  transform: rotate(180deg);
+}
+
+/* A player's tagged-highlights, laid out as a 2-up grid (fits the narrow
+   panel, so every clip is visible — no hidden horizontal overflow). */
+.pulse-clips {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 9px;
+  margin-top: 10px;
+}
+.pulse-clip {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+}
+.pulse-clip-art {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform 0.14s ease;
+}
+.pulse-clip:hover .pulse-clip-art {
+  transform: translateY(-2px);
+}
+.pulse-clip-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.pulse-clip-min {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  padding: 1px 6px;
+  border-radius: 5px;
+  font-size: 0.66rem;
+  font-weight: 800;
+  color: #fff;
+  background: rgba(8, 8, 12, 0.7);
+}
+.pulse-clip-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  opacity: 0.9;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+.pulse-clip-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-mid);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

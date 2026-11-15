@@ -1,0 +1,51 @@
+.match-art {
+  position: absolute;
+  inset: 0;
+}
+.match-art-half {
+  position: absolute;
+  inset: 0;
+}
+/* Complementary clips sharing one diagonal (56% top → 44% bottom). */
+.match-art-half.home {
+  clip-path: polygon(0 0, 56% 0, 44% 100%, 0 100%);
+}
+.match-art-half.away {
+  clip-path: polygon(56% 0, 100% 0, 100% 100%, 44% 100%);
+}
+.match-art-crest {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34%;
+  max-width: 130px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.45));
+}
+.match-art-crest.home {
+  left: 7%;
+}
+.match-art-crest.away {
+  right: 7%;
+}
+.match-art-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0) 58%);
+  pointer-events: none;
+}
+.match-art-league {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}

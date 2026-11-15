@@ -1,0 +1,23 @@
+Third-party content included in this repository
+================================================
+
+Tears of Steel
+--------------
+The catalog entry for "Tears of Steel" (data/catalog/exclusive_movie_dataset.json)
+and its poster (data/catalog/posters.zip, posters/tos-poster.jpg) describe a film that is
+(c) copyright Blender Foundation | mango.blender.org, licensed under the Creative
+Commons Attribution 3.0 license: https://creativecommons.org/licenses/by/3.0/
+The film itself is not included. notebooks/tears-of-steel/ downloads it from
+Blender's official mirrors into the deployer's own account, and the app shows
+this credit on the film's title page.
+
+Demo media
+----------
+data/media/football*.zip      Sample football footage supplied by the project owner
+                              for use in this open-source demo, re-encoded for the web.
+data/media/microdramas-*.zip  AI-generated demo videos made for this project.
+data/catalog/movie_dataset.json is a synthetically generated movie catalog, with
+its posters, from the aws-samples hyper-personalized agentic AI media assistant
+sample (MIT-0).
+
+See data/media/README.md for details.

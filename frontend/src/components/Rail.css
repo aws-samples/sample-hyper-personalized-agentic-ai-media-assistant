@@ -1,0 +1,156 @@
+.rail {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rail-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 0 var(--pad);
+}
+.rail-title {
+  font-size: var(--title-md);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.rail-context {
+  font-size: var(--small);
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.rail-track {
+  display: flex;
+  gap: var(--rail-gap);
+  overflow-x: auto;
+  padding: 4px var(--pad) 6px;
+  scrollbar-width: none;
+  /* Prevent the browser from shifting scroll position when async content
+     (skeletons -> real cards) changes the track's contents. */
+  overflow-anchor: none;
+}
+.rail-track::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  flex: none;
+  text-align: left;
+  transition: transform 0.16s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-art {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Landscape (continue watching / mixed) */
+.rail.mobile .card.landscape {
+  width: 210px;
+}
+.rail.tv .card.landscape {
+  width: 300px;
+}
+
+/* Portrait (catalog posters) */
+.rail.mobile .card.portrait {
+  width: 120px;
+}
+.rail.tv .card.portrait {
+  width: 170px;
+}
+
+/* Live game card overlay */
+.card-live {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 9px;
+}
+.card-live-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-upcoming {
+  font-size: 0.68em;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  padding: 3px 7px;
+  border-radius: 6px;
+}
+.card-live-clock {
+  font-size: var(--small);
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+}
+.card-live-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.card-live-name {
+  font-size: var(--small);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+}
+.card-live-score {
+  font-size: var(--body);
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+}
+
+.card-progress {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.card-progress span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+.card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 2px 0;
+}
+.card-title {
+  font-size: var(--body);
+  font-weight: 600;
+  color: var(--text-hi);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-sub {
+  font-size: var(--small);
+  color: var(--text-lo);
+  line-height: 1.3;
+  /* Reserve two lines: the star rating + genre sometimes wraps, and without a
+     reserved height that pushes shorter cards up and misaligns the row. */
+  min-height: calc(2 * 1.3em);
+}

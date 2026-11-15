@@ -1,0 +1,230 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 880" width="1320" height="880" font-family="Helvetica, Arial, sans-serif" font-size="12">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+  <rect width="1320" height="880" fill="#fff"/>
+  <text x="660" y="26" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">Unified user profile: standard ML path (Personalize) + agentic path (Memory + rerank)</text>
+
+  <!-- ============ Sources ============ -->
+  <rect x="10" y="70" width="210" height="305" rx="10" fill="none" stroke="#4A6FA5" stroke-dasharray="4 3"/>
+  <text x="115" y="90" text-anchor="middle" font-weight="bold" fill="#4A6FA5">Interaction surfaces</text>
+  <g fill="#E8F0FE" stroke="#4A6FA5">
+    <rect x="25" y="105" width="180" height="50" rx="6"/>
+    <rect x="25" y="170" width="180" height="50" rx="6"/>
+    <rect x="25" y="235" width="180" height="50" rx="6"/>
+  </g>
+  <rect x="25" y="300" width="180" height="60" rx="6" fill="#FDECEA" stroke="#C62828" stroke-width="1.5"/>
+  <g text-anchor="middle" fill="#222">
+    <text x="115" y="126" font-weight="bold">Long-form player</text><text x="115" y="143">movies / series</text>
+    <text x="115" y="191" font-weight="bold">Short-form feed</text><text x="115" y="208">micro drama / highlights</text>
+    <text x="115" y="256" font-weight="bold">Live / sports</text><text x="115" y="273">matches, races</text>
+    <text x="115" y="323" font-weight="bold">Recommendation agent</text>
+    <text x="115" y="340">conversational surface</text>
+    <text x="115" y="354" fill="#444" font-size="11">actorId = profileId</text>
+  </g>
+
+  <!-- ============ Behavioral pipeline ============ -->
+  <g fill="#FFF4E0" stroke="#C98A1B">
+    <rect x="250" y="60" width="220" height="95" rx="6"/>
+    <rect x="250" y="190" width="220" height="70" rx="6"/>
+    <rect x="250" y="300" width="105" height="60" rx="6"/>
+    <rect x="365" y="300" width="105" height="60" rx="6"/>
+  </g>
+  <g text-anchor="middle" fill="#222">
+    <text x="360" y="80" font-weight="bold">Content graph + catalog</text>
+    <text x="360" y="97">titles, clips, episodes linked to</text>
+    <text x="360" y="112">talent, genre, mood, team, parent</text>
+    <text x="360" y="130" fill="#6A1B9A">Nova multimodal embeddings</text>
+    <text x="360" y="145" fill="#6A1B9A">in OpenSearch</text>
+    <text x="360" y="213" font-weight="bold">Unified event stream</text>
+    <text x="360" y="231">one schema for all surfaces,</text>
+    <text x="360" y="247">normalized engagement</text>
+    <text x="302" y="323" font-weight="bold">Event log</text><text x="302" y="339">source of truth</text><text x="302" y="352" font-size="10">(batch rebuilds)</text>
+    <text x="417" y="326" font-weight="bold">Stream</text><text x="417" y="343">processor</text>
+  </g>
+  <text x="258" y="400" fill="#C98A1B" font-weight="bold" font-size="11">WHAT USERS DO</text>
+
+  <!-- ============ Stored profile (L1, L2, L3 declared) ============ -->
+  <rect x="525" y="70" width="280" height="400" rx="10" fill="none" stroke="#2E7D32" stroke-dasharray="4 3"/>
+  <text x="665" y="92" text-anchor="middle" font-weight="bold" fill="#2E7D32">Unified profile (stored)</text>
+  <g fill="#E6F4EA" stroke="#2E7D32">
+    <rect x="540" y="105" width="250" height="80" rx="6"/>
+    <rect x="540" y="195" width="250" height="80" rx="6"/>
+    <rect x="540" y="285" width="250" height="100" rx="6"/>
+  </g>
+  <g text-anchor="middle" fill="#222">
+    <text x="665" y="128" font-weight="bold">L1 Session state</text>
+    <text x="665" y="146">recent events, live intent</text>
+    <text x="665" y="164">(incl. conversational intent)</text>
+    <text x="665" y="218" font-weight="bold">L2 Affinities</text>
+    <text x="665" y="236">entity scores, format propensity,</text>
+    <text x="665" y="254">taste centroids (Nova space)</text>
+    <text x="665" y="308" font-weight="bold">L3 Declared</text>
+    <text x="665" y="326" font-size="11">user-owned, never decays</text>
+    <text x="665" y="344" font-size="11">likes, avoids, maturity, language,</text>
+    <text x="665" y="360" font-size="11">consent: structured hard limits</text>
+    <text x="665" y="376" font-size="10" fill="#444">(DynamoDB: L3#DECLARED)</text>
+  </g>
+  <g font-style="italic" font-size="11" fill="#7B1FA2">
+    <text x="545" y="410">L3 inferred is not stored:</text>
+    <text x="545" y="425">composed per session in the</text>
+    <text x="545" y="440">Profile Context API from</text>
+    <text x="545" y="455">L2 + LTM preferences</text>
+  </g>
+
+  <!-- ============ AgentCore Memory ============ -->
+  <rect x="250" y="600" width="380" height="190" rx="10" fill="none" stroke="#1565C0" stroke-dasharray="4 3"/>
+  <text x="440" y="620" text-anchor="middle" font-weight="bold" fill="#1565C0">AgentCore Memory</text>
+  <g fill="#E3F2FD" stroke="#1565C0">
+    <rect x="265" y="635" width="140" height="60" rx="6"/>
+    <rect x="265" y="710" width="140" height="70" rx="6"/>
+    <rect x="430" y="635" width="185" height="145" rx="6"/>
+  </g>
+  <g text-anchor="middle" fill="#222">
+    <text x="335" y="658" font-weight="bold">Short-term memory</text>
+    <text x="335" y="676">raw turns, event TTL</text>
+    <text x="335" y="730" font-weight="bold">LTM strategies</text>
+    <text x="335" y="747">user preference, facts,</text>
+    <text x="335" y="763">session summary</text>
+    <text x="522" y="656" font-weight="bold">LTM namespaces</text>
+    <g font-family="Menlo, monospace" font-size="11">
+      <text x="522" y="680">/actor/{profileId}/</text>
+      <text x="522" y="700">preferences/</text>
+      <text x="522" y="718">facts/</text>
+      <text x="522" y="736">session/{sid}/summary/</text>
+    </g>
+    <text x="522" y="760" fill="#444" font-size="11">async extract + consolidate</text>
+  </g>
+  <text x="258" y="590" fill="#1565C0" font-weight="bold" font-size="11">WHAT USERS SAY</text>
+
+  <!-- ============ Settings API (declared writer) ============ -->
+  <rect x="650" y="650" width="150" height="95" rx="6" fill="#FFF4E0" stroke="#C98A1B"/>
+  <g text-anchor="middle" fill="#222">
+    <text x="725" y="673" font-weight="bold">Settings API</text>
+    <text x="725" y="691" font-size="11">only writer of declared:</text>
+    <text x="725" y="706" font-size="11">user settings +</text>
+    <text x="725" y="721" font-size="11">agent-confirmed limits</text>
+    <text x="725" y="736" font-size="11">("never show horror")</text>
+  </g>
+
+  <!-- ============ Agentic serving ============ -->
+  <rect x="850" y="150" width="180" height="110" rx="8" fill="#F3E5F5" stroke="#7B1FA2"/>
+  <g text-anchor="middle" fill="#222">
+    <text x="940" y="172" font-weight="bold">Agent retrieval tool</text>
+    <text x="940" y="191" font-size="11">1. OpenSearch hybrid (Nova)</text>
+    <text x="940" y="206" font-size="11">   + L2 taste centroids</text>
+    <text x="940" y="223" font-size="11">2. Personalize rerank</text>
+    <text x="940" y="240" font-size="11">3. Fuse by request intent</text>
+  </g>
+  <rect x="850" y="290" width="180" height="170" rx="8" fill="#F3E5F5" stroke="#7B1FA2"/>
+  <text x="940" y="309" text-anchor="middle" font-weight="bold">Profile Context API</text>
+  <rect x="860" y="318" width="160" height="80" rx="5" fill="#FFFFFF" stroke="#7B1FA2" stroke-dasharray="3 2"/>
+  <g text-anchor="middle" fill="#222">
+    <text x="940" y="335" font-weight="bold" font-size="11">L3 inferred (view)</text>
+    <text x="940" y="351" font-size="11">L2 scores via templates</text>
+    <text x="940" y="366" font-size="11">+ LTM preferences, tagged</text>
+    <text x="940" y="381" font-size="11">confirmed / stated-only</text>
+    <text x="940" y="393" font-size="10" fill="#444">no LLM, cached per session</text>
+    <text x="940" y="416" font-size="11">+ L1 intent, declared limits,</text>
+    <text x="940" y="431" font-size="11">Memory summaries + facts,</text>
+    <text x="940" y="446" font-size="11">ranked candidates</text>
+  </g>
+  <text x="858" y="140" fill="#7B1FA2" font-weight="bold" font-size="11">AGENTIC PATH</text>
+
+  <!-- ============ Standard ML path ============ -->
+  <rect x="1080" y="60" width="225" height="80" rx="8" fill="#E0F2F1" stroke="#00695C" stroke-width="1.5"/>
+  <g text-anchor="middle" fill="#222">
+    <text x="1192" y="84" font-weight="bold" font-size="13">Amazon Personalize</text>
+    <text x="1192" y="103" font-size="11">User-Personalization-v2</text>
+    <text x="1192" y="118" font-size="11">Personalized-Ranking-v2</text>
+    <text x="1192" y="133" font-size="10" fill="#444">one dataset group, all formats</text>
+  </g>
+  <g fill="#E0F2F1" stroke="#00695C">
+    <rect x="1080" y="200" width="225" height="85" rx="6"/>
+    <rect x="1080" y="335" width="225" height="60" rx="6"/>
+  </g>
+  <g text-anchor="middle" fill="#222">
+    <text x="1192" y="222" font-weight="bold">Standard recommendations</text>
+    <text x="1192" y="240" font-size="11">home rows, short-form feed,</text>
+    <text x="1192" y="256" font-size="11">post-play (no LLM)</text>
+    <text x="1192" y="273" font-size="11">L3 declared limits as filters</text>
+    <text x="1192" y="360" font-weight="bold">Recommendation cache</text>
+    <text x="1192" y="378" font-size="11">per profile x surface, TTL</text>
+  </g>
+  <text x="1088" y="413" fill="#00695C" font-weight="bold" font-size="11">STANDARD ML PATH</text>
+
+  <!-- ============ Arrows ============ -->
+  <g stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#a)">
+    <!-- surfaces to event stream -->
+    <line x1="205" y1="130" x2="250" y2="212"/>
+    <line x1="205" y1="195" x2="250" y2="218"/>
+    <line x1="205" y1="260" x2="250" y2="225"/>
+    <line x1="205" y1="330" x2="250" y2="238"/>
+    <!-- pipeline -->
+    <line x1="302" y1="260" x2="302" y2="300"/>
+    <line x1="417" y1="260" x2="417" y2="300"/>
+    <line x1="470" y1="315" x2="540" y2="148"/>
+    <line x1="470" y1="330" x2="540" y2="238"/>
+    <!-- memory internals -->
+    <line x1="335" y1="695" x2="335" y2="710"/>
+    <line x1="405" y1="745" x2="430" y2="745"/>
+    <!-- settings API writes declared -->
+    <line x1="725" y1="650" x2="725" y2="385"/>
+    <!-- L2 centroids to retrieval -->
+    <line x1="790" y1="210" x2="850" y2="210"/>
+    <!-- L2 scores to Context API (templated into inferred view) -->
+    <path d="M790 255 H822 V350 H860"/>
+    <!-- declared to Context API -->
+    <line x1="790" y1="375" x2="850" y2="375"/>
+    <!-- retrieval candidates to API -->
+    <line x1="940" y1="260" x2="940" y2="290"/>
+  </g>
+  <!-- PutEvents to Personalize -->
+  <path d="M470 222 H500 V46 H1192 V60" stroke="#00695C" stroke-width="1.8" fill="none" marker-end="url(#a)"/>
+  <!-- Personalize to standard recs to cache -->
+  <line x1="1192" y1="140" x2="1192" y2="200" stroke="#00695C" stroke-width="1.8" marker-end="url(#a)"/>
+  <line x1="1192" y1="285" x2="1192" y2="335" stroke="#00695C" stroke-width="1.8" marker-end="url(#a)"/>
+  <!-- rerank call -->
+  <path d="M1030 215 H1058 V105 H1080" stroke="#00695C" stroke-width="1.8" stroke-dasharray="6 3" fill="none" marker-start="url(#a)" marker-end="url(#a)"/>
+  <!-- agent writes turns to STM -->
+  <path d="M115 360 V665 H265" stroke="#1565C0" stroke-width="1.8" fill="none" marker-end="url(#a)"/>
+  <!-- LTM preferences + summaries/facts read by API (half of inferred view) -->
+  <path d="M522 780 V805 H900 V460" stroke="#1565C0" stroke-width="1.8" stroke-dasharray="6 4" fill="none" marker-end="url(#a)"/>
+  <!-- API to agent -->
+  <path d="M985 460 V830 H60 V360" stroke="#7B1FA2" stroke-width="1.8" fill="none" marker-end="url(#a)"/>
+  <!-- content graph enrich -->
+  <line x1="360" y1="155" x2="360" y2="190" stroke="#C98A1B" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a)"/>
+
+  <!-- Labels -->
+  <g font-style="italic" font-size="11">
+    <text x="508" y="40" fill="#00695C">PutEvents (all surfaces, incl. agent interactions)</text>
+    <text x="1062" y="185" fill="#00695C" transform="rotate(-90 1066 170)">rerank</text>
+    <text x="796" y="203" fill="#555">centroids</text>
+    <text x="796" y="249" fill="#555">scores</text>
+    <text x="796" y="369" fill="#555">limits</text>
+    <text x="718" y="560" fill="#555" text-anchor="end">confirmed limits</text>
+    <text x="718" y="574" fill="#555" text-anchor="end">to declared</text>
+    <text x="122" y="560" fill="#1565C0">create_event</text>
+    <text x="122" y="574" fill="#1565C0">(turns)</text>
+    <g text-anchor="end" fill="#1565C0">
+      <text x="894" y="545">LTM preferences,</text>
+      <text x="894" y="559">summaries, facts</text>
+      <text x="894" y="573">(read per session)</text>
+    </g>
+    <text x="400" y="847" fill="#7B1FA2">context pack + ranked candidates to agent (LLM selects and explains)</text>
+  </g>
+
+  <!-- Legend -->
+  <g font-size="11" fill="#444">
+    <line x1="1080" y1="470" x2="1115" y2="470" stroke="#555" stroke-width="1.5"/><text x="1122" y="474">behavioral data flow</text>
+    <line x1="1080" y1="492" x2="1115" y2="492" stroke="#00695C" stroke-width="1.8"/><text x="1122" y="496">standard ML path</text>
+    <line x1="1080" y1="514" x2="1115" y2="514" stroke="#1565C0" stroke-width="1.8"/><text x="1122" y="518">conversational memory</text>
+    <line x1="1080" y1="536" x2="1115" y2="536" stroke="#7B1FA2" stroke-width="1.8"/><text x="1122" y="540">served to agent</text>
+    <line x1="1080" y1="558" x2="1115" y2="558" stroke="#555" stroke-dasharray="5 4" stroke-width="1.5"/><text x="1122" y="562">enrich / read-through</text>
+    <rect x="1080" y="574" width="35" height="14" fill="#FFFFFF" stroke="#7B1FA2" stroke-dasharray="3 2"/><text x="1122" y="585">composed view (not stored)</text>
+  </g>
+
+  <text x="660" y="872" text-anchor="middle" fill="#666">Stored profile = L1, L2, L3 declared. L3 inferred = L2 (templated) + AgentCore LTM, composed per session. Both paths obey the same declared limits.</text>
+</svg>

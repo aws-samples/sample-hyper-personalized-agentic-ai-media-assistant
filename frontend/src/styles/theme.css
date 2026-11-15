@@ -1,0 +1,124 @@
+/* ============================================================
+   IBC 2026 — Design System
+   Dark, modern streaming aesthetic (Netflix / Peacock inspired)
+   Brand accent tuned toward AWS + a warm "live" red for sports.
+   Ported from the IBC 2026 mockups (design reference).
+   ============================================================ */
+
+:root {
+  /* Core surfaces — dark base (Quick palette) */
+  --bg-0: #08080c; /* deepest, used behind gradients */
+  --bg-1: #0d0d12; /* main canvas */
+  --bg-2: #1a1a24; /* cards, modals, panels */
+  --bg-3: #252530; /* input fields, secondary containers */
+  --bg-4: #33333f; /* borders / dividers strong, hover */
+
+  /* Text */
+  --text-hi: #f0f0f5; /* headlines, titles */
+  --text-mid: #9898a6; /* descriptions, metadata (cool gray) */
+  --text-lo: #6e6e7c;
+  --text-dim: #4a4a56;
+
+  /* Brand + accents — warm amber / soft gold */
+  --accent: #f5a623; /* primary: CTAs, active states, highlights */
+  --accent-2: #d4943a; /* secondary buttons, hover */
+  --accent-grad: linear-gradient(135deg, #f5a623 0%, #d4943a 100%);
+  --accent-glow: rgba(245, 166, 35, 0.55);
+  --accent-ink: #1a1204; /* text/icons sitting on an accent fill */
+  --accent-soft: rgba(245, 166, 35, 0.14); /* tinted chip/pill backgrounds */
+  --accent-line: rgba(245, 166, 35, 0.4); /* tinted borders */
+
+  /* AI / voice layer — purple (kept distinct from the gold content layer) */
+  --ai: #8b5cf6;
+  --ai-2: #b64fff;
+  --ai-grad: linear-gradient(135deg, #8b5cf6 0%, #b64fff 55%, #ff5ca8 100%);
+
+  /* Live / sports + status */
+  --live: #ff6b6b; /* LIVE badges, key moments, alerts (coral red) */
+  --live-soft: rgba(255, 107, 107, 0.16);
+  --win: #2ecc71; /* success / positive / live dot */
+  --warn: #f5a623; /* warnings reuse amber */
+  --hot: #ff7a2f; /* Peacock-style "fire" streak */
+
+  /* Utility */
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.48);
+
+  /* Radii */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 32px;
+
+  /* Type */
+  --font: "Inter", "SF Pro Text", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", "SF Pro Display",
+    -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ===== StreamAI theme =====
+   Cool midnight-navy base, teal brand, unified purple→cyan AI/brand accent.
+   Activated via <html data-theme="streamai">. Default (no attribute) = amber. */
+[data-theme="streamai"] {
+  /* Surfaces — cool slate-navy */
+  --bg-0: #070a12;
+  --bg-1: #0a0e1a;
+  --bg-2: #151b2e;
+  --bg-3: #1e2740;
+  --bg-4: #2a3352;
+
+  /* Text — cool slate */
+  --text-hi: #f8fafc;
+  --text-mid: #cbd5e1;
+  --text-lo: #94a3b8;
+  --text-dim: #64748b;
+
+  /* Brand + accents — teal, with the signature purple→cyan gradient */
+  --accent: #14b8a6;
+  --accent-2: #0d9488;
+  --accent-grad: linear-gradient(135deg, #7c3aed 0%, #14b8a6 100%);
+  --accent-glow: rgba(20, 184, 166, 0.5);
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(20, 184, 166, 0.16);
+  --accent-line: rgba(20, 184, 166, 0.42);
+
+  /* AI / voice layer — purple → cyan (StreamAI signature) */
+  --ai: #a78bfa;
+  --ai-2: #22d3ee;
+  --ai-grad: linear-gradient(135deg, #a78bfa 0%, #7c3aed 45%, #22d3ee 100%);
+
+  /* Live / status */
+  --live: #ef4444;
+  --live-soft: rgba(239, 68, 68, 0.16);
+  --win: #10b981;
+  --warn: #f59e0b;
+  --hot: #fb923c;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+}
+
+/* Device-scoped scale tokens.
+   TV uses larger type + spacing (lean-back, 10-ft UI). */
+.device-mobile {
+  --pad: 16px;
+  --rail-gap: 10px;
+  --title-xl: 30px;
+  --title-lg: 22px;
+  --title-md: 17px;
+  --body: 14px;
+  --small: 12px;
+}
+
+.device-tv {
+  --pad: 48px;
+  --rail-gap: 18px;
+  --title-xl: 60px;
+  --title-lg: 34px;
+  --title-md: 24px;
+  --body: 18px;
+  --small: 15px;
+}

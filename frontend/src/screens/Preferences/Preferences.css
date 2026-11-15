@@ -1,0 +1,278 @@
+.prefs-screen {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: radial-gradient(1200px 600px at 20% -10%, rgba(139, 92, 246, 0.12), transparent 60%), var(--bg-0);
+  color: var(--text-hi);
+  padding: 48px var(--pad);
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+.prefs-screen.mobile {
+  padding: 24px 10px;
+}
+
+.prefs-panel {
+  width: 100%;
+  max-width: 720px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 24px 24px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+.prefs-screen.tv .prefs-panel {
+  max-width: 980px;
+  padding: 36px 40px 28px;
+  gap: 28px;
+  font-size: 1.15em;
+}
+
+.prefs-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.prefs-who {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-mid);
+  font-size: 0.9em;
+}
+.prefs-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+.prefs-skip,
+.prefs-link {
+  background: none;
+  border: none;
+  color: var(--text-mid);
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85em;
+  padding: 4px;
+  align-self: flex-start;
+}
+.prefs-link {
+  color: var(--accent);
+  text-decoration: none;
+  padding: 0;
+}
+
+.prefs-title {
+  margin: 0;
+  font-size: 1.7em;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.prefs-sub {
+  margin: 4px 0 0;
+  color: var(--text-mid);
+  font-size: 0.9em;
+}
+
+.prefs-sec {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.prefs-lbl {
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.prefs-hint {
+  font-weight: 400;
+  color: var(--text-lo);
+  font-size: 0.8em;
+}
+.prefs-note {
+  margin: 0;
+  color: var(--text-mid);
+  font-size: 0.8em;
+}
+
+.prefs-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.prefs-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 6px 14px;
+  background: var(--bg-3);
+  color: var(--text-hi);
+  font: inherit;
+  font-size: 0.88em;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+}
+.prefs-chip:hover {
+  border-color: var(--accent-line);
+}
+.prefs-chip.love {
+  background: rgba(46, 204, 113, 0.16);
+  border-color: var(--win);
+  color: var(--win);
+}
+.prefs-chip.never {
+  background: var(--live-soft);
+  border-color: var(--live);
+  color: var(--live);
+  text-decoration: line-through;
+}
+.prefs-chip.set {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+  color: var(--text-hi);
+  cursor: default;
+}
+.prefs-chip.set small {
+  color: var(--text-mid);
+  font-size: 0.8em;
+}
+.prefs-chip.set.unmatched {
+  background: transparent;
+  border-style: dashed;
+}
+.prefs-suggest {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 4px;
+  background: var(--bg-3);
+  color: var(--text-hi);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-sm);
+}
+.prefs-suggest-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  width: 100%;
+  padding: 8px 10px;
+  background: transparent;
+  color: var(--text-hi);
+  border: none;
+  border-radius: var(--r-sm);
+  font: inherit;
+  font-size: 0.9em;
+  text-align: left;
+  cursor: pointer;
+}
+.prefs-suggest-item small {
+  color: var(--text-mid);
+  font-size: 0.8em;
+}
+.prefs-suggest-item.on {
+  background: var(--accent-soft);
+  color: var(--text-hi);
+}
+.prefs-chip.suggest {
+  border-style: dashed;
+  background: transparent;
+  color: var(--text-mid);
+}
+.prefs-x {
+  background: none;
+  border: none;
+  color: var(--text-mid);
+  cursor: pointer;
+  font-size: 1.1em;
+  line-height: 1;
+  padding: 0 0 0 2px;
+}
+
+.prefs-row {
+  display: flex;
+  gap: 8px;
+}
+.prefs-input,
+.prefs-select {
+  background: var(--bg-3);
+  color: var(--text-hi);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-sm);
+  padding: 9px 12px;
+  font: inherit;
+  font-size: 0.9em;
+}
+.prefs-input {
+  flex: 1;
+  min-width: 0;
+}
+.prefs-input::placeholder {
+  color: var(--text-lo);
+}
+
+.prefs-btn {
+  background: var(--bg-3);
+  color: var(--text-hi);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-sm);
+  padding: 9px 16px;
+  font: inherit;
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+}
+.prefs-btn.primary {
+  background: var(--accent-grad);
+  color: var(--accent-ink);
+  border-color: transparent;
+  padding: 10px 22px;
+}
+.prefs-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.prefs-chip:focus-visible,
+.prefs-btn:focus-visible,
+.prefs-input:focus-visible,
+.prefs-select:focus-visible,
+.prefs-skip:focus-visible,
+.prefs-link:focus-visible,
+.prefs-x:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.prefs-msg {
+  margin: 0;
+  color: var(--live);
+  font-size: 0.88em;
+}
+
+.prefs-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prefs-chip {
+    transition: none;
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "account": "<your-account-id>",
+  "region": "us-west-2",
+  "prefix": "hpm-demo",
+  "qualifier": "hpmdemo",
+  "tags": {
+    "Project": "hyper-personalized-movie-assistant",
+    "Environment": "demo"
+  },
+  "mediaBucket": "<your-account-id>-hpm-demo-media",
+  "dataLoaderPrincipals": [],
+  "scriptsPrefix": "input/kb/",
+  "embeddingModel": "amazon.nova-2-multimodal-embeddings-v1:0",
+  "embeddingRegion": "us-east-1",
+  "mediaBaseUrl": "",
+  "soccerUrl": "/media/soccer/horizontal/football.mp4",
+  "soccerVerticalUrl": "/media/soccer/vertical/football.mp4",
+  "enableWarmer": true,
+  "homeRailsSource": "connect",
+  "name": "demo",
+  "stackPrefix": "HpmDemo",
+  "models": {
+    "movie": "us.anthropic.claude-haiku-5-5",
+    "memory": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "scene": "us.amazon.nova-2-lite-v1:0",
+    "sports": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+    "voice": "amazon.nova-2-sonic-v1:0",
+    "knowledgeEmbedding": "amazon.titan-embed-text-v2:0",
+    "grounding": "us.amazon.nova-2-lite-v1:0",
+    "groundingFoundation": "amazon.nova-2-lite-v1:0"
+  },
+  "groundingRegion": "us-west-2",
+  "runtimePlatformVersion": "V2"
+}

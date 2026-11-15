@@ -1,0 +1,499 @@
+.profile-screen {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-0);
+}
+
+/* ---- Mobile: full-bleed cinematic bg + frosted profile panel ---- */
+.profile-screen.mobile-netflix {
+  justify-content: space-between;
+}
+
+.profile-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.profile-bg-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 11, 15, 0.5) 0%,
+    rgba(10, 11, 15, 0.15) 26%,
+    rgba(10, 11, 15, 0.55) 62%,
+    rgba(10, 11, 15, 0.92) 100%
+  );
+}
+
+.profile-top {
+  position: relative;
+  z-index: 1;
+  padding: 52px var(--pad) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+}
+.promo-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: fadeUp 0.5s ease;
+}
+.promo-title {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.6);
+}
+.promo-sub {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-mid);
+  letter-spacing: 0.02em;
+}
+
+/* Frosted glass profile panel anchored at bottom */
+.profile-panel {
+  position: relative;
+  z-index: 1;
+  margin: 0 10px 14px;
+  padding: 22px 18px 24px;
+  border-radius: var(--r-lg);
+  background: rgba(16, 18, 24, 0.55);
+  backdrop-filter: blur(22px) saturate(120%);
+  -webkit-backdrop-filter: blur(22px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.profile-panel .profile-heading {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Content promotion badge (TOP 10 / #1 in TV Shows Today) */
+.promo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.top10 {
+  background: var(--live);
+  color: #fff;
+  font-weight: 900;
+  font-size: 11px;
+  line-height: 0.95;
+  text-align: center;
+  letter-spacing: 0.04em;
+  padding: 6px 7px;
+  border-radius: 5px;
+}
+.promo-rank {
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
+}
+.device-tv .top10 {
+  font-size: 15px;
+  padding: 9px 10px;
+  border-radius: 7px;
+}
+.device-tv .promo-rank {
+  font-size: 20px;
+}
+
+.profile-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.profile-backdrop-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 11, 15, 0.35) 0%,
+    rgba(10, 11, 15, 0.75) 55%,
+    rgba(10, 11, 15, 0.98) 100%
+  );
+}
+
+.profile-promo {
+  position: absolute;
+  top: var(--pad);
+  left: var(--pad);
+  right: var(--pad);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  animation: fadeUp 0.5s ease;
+}
+.profile-promo h2 {
+  font-size: var(--title-lg);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.profile-promo p {
+  color: var(--text-mid);
+  font-size: var(--body);
+}
+
+.profile-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  padding: var(--pad);
+}
+
+.profile-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: var(--pad);
+}
+
+.brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: var(--title-md);
+  color: var(--text-hi);
+}
+.brand-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-grad);
+  box-shadow: 0 0 14px var(--accent-glow);
+}
+
+.profile-heading {
+  font-size: var(--title-xl);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
+.profile-grid {
+  display: grid;
+  gap: 18px;
+  width: 100%;
+}
+.profile-grid.mobile {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  max-width: 340px;
+}
+.profile-grid.tv {
+  grid-template-columns: repeat(auto-fit, 150px);
+  justify-content: center;
+  gap: 26px;
+  max-width: 1040px;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: var(--r-md);
+  transition: transform 0.16s ease;
+}
+.profile-card:hover,
+.profile-card.focused {
+  transform: translateY(-4px);
+}
+
+.profile-avatar {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: box-shadow 0.16s ease;
+}
+.profile-grid.tv .profile-avatar {
+  border-radius: 22px;
+}
+.profile-card.focused .profile-avatar {
+  box-shadow: 0 0 0 3px #fff, 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+.profile-avatar.kids {
+  background: conic-gradient(
+    from 210deg,
+    #ff5ca8,
+    #ffb020,
+    #2fd07a,
+    #4f7cff,
+    #b64fff,
+    #ff5ca8
+  );
+}
+
+.edit-avatar {
+  background: transparent !important;
+  border: 2px dashed rgba(255, 255, 255, 0.28);
+  box-shadow: none;
+}
+.edit-pencil {
+  font-size: 30px;
+  color: var(--text-mid);
+}
+.device-tv .edit-pencil {
+  font-size: 44px;
+}
+.edit-card .profile-name {
+  color: var(--text-lo);
+}
+
+.profile-emoji {
+  font-size: 34px;
+}
+.profile-grid.mobile .profile-name {
+  font-size: 13px;
+  line-height: 1.2;
+  text-align: center;
+  /* Reserve two lines so names like "Rom-Com Lover" wrap cleanly and every
+     profile card stays vertically aligned. */
+  min-height: calc(2 * 1.2em);
+}
+.profile-grid.mobile .profile-persona {
+  font-size: 11px;
+}
+.device-tv .profile-emoji {
+  font-size: 64px;
+}
+
+.kid-tag {
+  position: absolute;
+  bottom: 8px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.profile-name {
+  font-weight: 700;
+  font-size: var(--body);
+  color: var(--text-hi);
+}
+.profile-persona {
+  font-size: var(--small);
+  color: var(--text-lo);
+}
+.profile-card.focused .profile-persona {
+  color: var(--accent);
+}
+
+.tv-hint {
+  color: var(--text-lo);
+  font-size: var(--small);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.dpad,
+.ok {
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 6px;
+  color: var(--text-mid);
+  font-weight: 700;
+}
+
+/* ---- Edit mode: pick a profile to change its preferences ---- */
+.edit-badge {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: inherit;
+  font-size: 30px;
+  color: #fff;
+}
+.profile-card.disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* ---- Add profile ---- */
+.add-profile-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 16px;
+}
+.add-profile-dialog {
+  width: min(380px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+  border-radius: 14px;
+  background: #16181d;
+  color: #f2f3f5;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.add-profile-dialog h2 {
+  margin: 0;
+  font-size: 20px;
+}
+.add-profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: #b8bcc6;
+}
+.add-profile-field input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #0e0f12;
+  color: #f2f3f5;
+  font-size: 15px;
+}
+.add-profile-kids {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 14px;
+  cursor: pointer;
+}
+.add-profile-kids small {
+  display: block;
+  color: #b8bcc6;
+  font-size: 12px;
+}
+.add-profile-error {
+  margin: 0;
+  color: #ff8a80;
+  font-size: 13px;
+}
+.add-profile-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.add-profile-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: #f2f3f5;
+  font-size: 14px;
+  cursor: pointer;
+}
+.add-profile-btn.primary {
+  background: #e50914;
+  border-color: #e50914;
+}
+.add-profile-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.add-profile-field input:focus-visible,
+.add-profile-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ---- Edit mode: remove a profile (soft; restorable) ---- */
+.profile-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+}
+.profile-remove {
+  align-self: center;
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.35);
+  color: #f2f3f5;
+  font-size: 13px;
+  cursor: pointer;
+}
+.profile-remove:hover {
+  border-color: #ff8a80;
+  color: #ff8a80;
+}
+.profile-remove:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+.remove-profile-note {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #b8bcc6;
+}
+
+/* ---- Edit mode: removed profiles, restorable ---- */
+.removed-profiles {
+  width: min(520px, 100%);
+  margin: 24px auto 0;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(14, 15, 18, 0.75);
+  color: #f2f3f5;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.removed-profiles h2 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+.removed-profiles ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.removed-profiles li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.removed-avatar {
+  font-size: 22px;
+}
+.removed-name {
+  flex: 1;
+  font-size: 15px;
+}
+.removed-hint {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: #b8bcc6;
+}

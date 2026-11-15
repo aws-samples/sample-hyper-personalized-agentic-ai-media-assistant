@@ -1,0 +1,93 @@
+/* Real poster image (replaces the gradient placeholder for live data). */
+.poster-img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  background: var(--bg-3);
+}
+.poster-fallback {
+  width: 100%;
+  aspect-ratio: 2/3;
+  border-radius: 10px;
+  background: var(--bg-3);
+}
+
+/* Loading skeletons */
+.rail-skeleton {
+  aspect-ratio: 2/3;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--bg-2) 25%, var(--bg-3) 37%, var(--bg-2) 63%);
+  background-size: 400% 100%;
+  animation: rail-shimmer 1.4s ease infinite;
+}
+.rail-error {
+  color: var(--text-lo);
+  font-size: var(--small);
+  padding: 4px var(--pad);
+}
+@keyframes rail-shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: 0 0; }
+}
+
+/* My List add/remove toggle (top-right of a poster). Neutral streaming-style
+   circle: translucent dark fill, thin border; white check once added. */
+.card-add {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+  /* Opaque so it stays legible over light posters; shadow separates it from
+     the artwork on any background. */
+  background: #141414;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.14s ease, transform 0.14s ease, background 0.14s ease,
+    border-color 0.14s ease;
+}
+.card:hover .card-add,
+.card-add:focus-visible,
+.card-add.on {
+  opacity: 1;
+  transform: scale(1);
+}
+.card-add:hover {
+  background: #000;
+  border-color: #fff;
+}
+/* Added: same solid dark circle (readable everywhere); the Check icon is the
+   cue. Full white border to signal the active state. */
+.card-add.on {
+  border-color: #fff;
+}
+/* Touch devices have no hover — always show the toggle. */
+@media (hover: none) {
+  .card-add {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Separator between the star rating and the genre in a movie card's sub-line.
+   It replaces the literal " · " string that used to sit next to "★ 7.8", and
+   carries its own margins because the surrounding spaces are gone.
+
+   Scoped to this file on purpose: .card-sub is shared with Rail.tsx and the
+   Home live cards, which render several text children into it. Turning that
+   class into a flex row would apply a gap between each of those children and
+   change their spacing, so the badge relies on inline alignment instead. */
+.card-sub-sep {
+  margin: 0 0.45em;
+  color: var(--text-dim);
+}

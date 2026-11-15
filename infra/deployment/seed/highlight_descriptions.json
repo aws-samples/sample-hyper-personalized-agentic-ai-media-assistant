@@ -1,0 +1,5 @@
+{
+  "_comment": "One genre sentence per highlight clip, keyed by file name (both orientations share it), e.g. \"<base>_action_fan.mp4\": \"An action scene: ...\". annotate_highlights.py writes each as the clip's S3 metadata x-amz-meta-description; get_video_url embeds it and shows the clip whose description is closest to the profile's taste. The Tears of Steel clips are cut and uploaded (with these sentences) by notebooks/tears-of-steel/1-video-scenes.ipynb. A title with a single clip needs no entry.",
+  "tears-of-steel_action_fan.mp4": "An action scene: a giant combat robot charges through a ruined cathedral and a squad of soldiers opens fire on it.",
+  "tears-of-steel_rom_com_lover.mp4": "A romantic scene: two former lovers reunite on an Amsterdam street; she tells him he broke her heart, and he admits it."
+}
