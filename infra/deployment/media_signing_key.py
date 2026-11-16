@@ -42,16 +42,24 @@ def main():
     import boto3
     session = boto3.Session(region_name=cfg["region"])
     assert session.client("sts").get_caller_identity()["Account"] == cfg["account"]
-    secrets, ssm, cloudfront = session.client("secretsmanager"), session.client("ssm"), session.client("cloudfront")
-    secret_name = f'{cfg["prefix"]}/media-signing-key'
+    sm, ssm, cloudfront = session.client("secretsmanager"), session.client("ssm"), session.client("cloudfront")
+    key_name = f'{cfg["prefix"]}/media-signing-key'
     param_name = f'/{cfg["prefix"]}/media-signing/key-pair-id'
 
-    old = None
+    # Existence check and the current key id without reading the private key:
+    # describe_secret returns metadata only, and the public key id is in SSM.
+    exists = True
     try:
-        old = json.loads(secrets.get_secret_value(SecretId=secret_name)["SecretString"])["keyPairId"]
-    except secrets.exceptions.ResourceNotFoundException:
-        pass
-    if old and not args.rotate:
+        sm.describe_secret(SecretId=key_name)
+    except sm.exceptions.ResourceNotFoundException:
+        exists = False
+    old = None
+    if exists:
+        try:
+            old = ssm.get_parameter(Name=param_name)["Parameter"]["Value"]
+        except ssm.exceptions.ParameterNotFound:
+            old = "unknown"
+    if exists and not args.rotate:
         print("Signing key already exists:", old)
         return
 
@@ -61,16 +69,16 @@ def main():
         "CallerReference": f'{cfg["prefix"]}-media-{stamp}', "Name": f'{cfg["prefix"]}-media-{stamp}',
         "EncodedKey": public, "Comment": f'{cfg["prefix"]} /media/* signed cookies'})["PublicKey"]["Id"]
     value = json.dumps({"keyPairId": key_id, "privateKey": private})
-    if old:
-        secrets.put_secret_value(SecretId=secret_name, SecretString=value)
+    if exists:
+        sm.put_secret_value(SecretId=key_name, SecretString=value)
     else:
-        secrets.create_secret(Name=secret_name, SecretString=value,
+        sm.create_secret(Name=key_name, SecretString=value,
             Description="CloudFront signing key for the /media/* signed cookies",
             Tags=[{"Key": k, "Value": v} for k, v in cfg["tags"].items()])
     ssm.put_parameter(Name=param_name, Value=key_id, Type="String", Overwrite=True)
     print("CloudFront public key:", key_id)
-    print("Secret:", secret_name, "| SSM parameter:", param_name)
-    if old:
+    print("Secret:", key_name, "| SSM parameter:", param_name)
+    if exists:
         print("Deploy the frontend phase, then delete the old CloudFront public key:", old)
 
 

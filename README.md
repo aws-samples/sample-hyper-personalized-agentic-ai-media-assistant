@@ -143,9 +143,9 @@ The deployment bills by the hour while it exists, mainly the OpenSearch Serverle
    .venv/bin/python infra/deployment/deploy.py --config $CONFIG --create-user <login>
    ```
 
-   It deploys the stacks, loads the data shipped in this repository (posters, micro-dramas, the football match and the catalog index), deploys the insights console, and runs the smoke and end-to-end checks. At the end it prints the app URL, your login and its password. The password is shown only once. If it fails, see [Troubleshooting](#troubleshooting).
+   It deploys the stacks, loads the data shipped in this repository (posters, micro-dramas, the football match and the catalog index), deploys the insights console, and runs the smoke and end-to-end checks. At the end it prints the app URL and your login, and writes the login's password to `infra/.artifacts/<name>/login-<login>.txt`, readable only by you; it is never printed. Store it and delete the file. If it fails, see [Troubleshooting](#troubleshooting).
 
-5. Open the printed `App` URL and sign in. The `Insights` URL is the insights console.
+5. Open the printed `App` URL and sign in with the login and the password from that file. The `Insights` URL is the insights console.
 
 6. Optional: run the [Tears of Steel notebooks](#scene-analysis-optional-tears-of-steel) for movie playback and scene analysis.
 

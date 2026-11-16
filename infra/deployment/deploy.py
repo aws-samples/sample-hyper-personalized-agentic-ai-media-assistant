@@ -8,8 +8,8 @@ Run with the repository .venv after installing requirements.txt and the CDK CLI.
 `--phase all` (the default) runs, in order: synth and template tests, bootstrap,
 build, application, the media signing key, frontend, data (the loaders for the
 data in this repository), insights, and check (smoke.py and e2e.py). Each phase
-can also run alone. `--create-user <login>` then adds a sign-in user and prints
-its password once; `--phase user --create-user <login>` only does that.
+can also run alone. `--create-user <login>` then adds a sign-in user and writes
+its password to infra/.artifacts/<name>/login-<login>.txt (mode 0600); `--phase user --create-user <login>` only does that.
 """
 import argparse
 import json
@@ -116,7 +116,7 @@ def main():
     parser.add_argument("--phase", choices=PHASES, default="all")
     parser.add_argument("--config", default=str(DEFAULT_CONFIG), help="Environment JSON file")
     parser.add_argument("--create-user", metavar="LOGIN",
-                        help="Afterwards, add this sign-in user and print its password (shown once)")
+                        help="Afterwards, add this sign-in user; its password is written to a file only you can read")
     args = parser.parse_args()
     if args.phase == "user" and not args.create_user:
         parser.error("--phase user needs --create-user <login>")
@@ -244,9 +244,14 @@ def main():
             insights = outputs(stack_name(cfg, "Insights")).get("InsightsUrl")
         except Exception:  # noqa: BLE001 -- the insights console is not deployed
             insights = None
+        # The password goes to a file only you can read, never to the console or logs.
+        login_file = artifacts / f"login-{args.create_user}.txt"
+        fd = os.open(login_file, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
+        with os.fdopen(fd, "w") as f:
+            f.write(f"{password}\n")
         print(f"\nApp:      {site}" + (f"\nInsights: {insights}" if insights else "") +
-              f"\n  login:    {args.create_user}\n  password: {password}\n"
-              "The password is shown only once; store it now. The same login works for both.", flush=True)
+              f"\n  login:    {args.create_user}\n  password: in {login_file} (readable only by you)\n"
+              "The same login works for both. Store the password elsewhere and delete the file.", flush=True)
 
 
 if __name__ == "__main__":

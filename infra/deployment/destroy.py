@@ -187,11 +187,12 @@ def build_plan(session, cfg, include_media_bucket):
                 plan.add("log group", g["logGroupName"],
                          lambda n=g["logGroupName"]: logs.delete_log_group(logGroupName=n))
 
-    secrets = session.client("secretsmanager")
-    secret = f"{prefix}/media-signing-key"
+    # Names only: the key material is never read.
+    sm = session.client("secretsmanager")
+    key_name = f"{prefix}/media-signing-key"
     try:
-        secrets.describe_secret(SecretId=secret)
-        plan.add("secret", secret, lambda: secrets.delete_secret(SecretId=secret, ForceDeleteWithoutRecovery=True))
+        sm.describe_secret(SecretId=key_name)
+        plan.add("secret", key_name, lambda: sm.delete_secret(SecretId=key_name, ForceDeleteWithoutRecovery=True))
     except Exception as err:  # noqa: BLE001
         if not _missing(err):
             raise

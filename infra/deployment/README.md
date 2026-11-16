@@ -103,9 +103,10 @@ Each loader and check also runs on its own with `--config $CONFIG`, and all
 are safe to re-run. Optional after the deploy: the Tears of Steel notebooks in
 `notebooks/tears-of-steel/` for movie playback and scene analysis.
 
-`--create-user <login>` adds a Cognito user with a random permanent password
-and prints it once with the app and insights URLs. It refuses an existing
-login rather than resetting its password.
+`--create-user <login>` adds a Cognito user with a random permanent password,
+writes the password to `infra/.artifacts/<name>/login-<login>.txt` (mode
+0600; it is never printed or logged) and prints the app and insights URLs. It
+refuses an existing login rather than resetting its password.
 
 `e2e.py` signs in as a temporary user and checks the household and Home rows
 (catalog titles with presigned posters), typed recommendations and a
