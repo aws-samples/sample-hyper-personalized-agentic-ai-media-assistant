@@ -1,0 +1,38 @@
+{
+  "description": "Sports roster for the followed-entity registry: the teams and players of the demo's live content, the fictional synthetic match SYN-MAT-0001 (backend/live-sports-agent/build_synthetic_match.py). Names, club and shirt number only. scripts/build_sports_entities.py turns it into infra/lambdas/profile_settings/sports_entities.json. Ids are stable: stored follows use them. `drivers` is kept for the API's drivers kind; the demo has no motorsport content.",
+  "teams": [
+    {"id": "team:harbor-city-fc", "name": "Harbor City FC", "sport": "soccer"},
+    {"id": "team:redcliffe-athletic", "name": "Redcliffe Athletic", "sport": "soccer"}
+  ],
+  "players": [
+    {"id": "player:ilya-brandvold", "name": "Ilya Brandvold", "team": "team:harbor-city-fc", "number": 1},
+    {"id": "player:mateo-quintal", "name": "Mateo Quintal", "team": "team:harbor-city-fc", "number": 2},
+    {"id": "player:haruto-senda", "name": "Haruto Senda", "team": "team:harbor-city-fc", "number": 3},
+    {"id": "player:desmond-okafor-hale", "name": "Desmond Okafor-Hale", "team": "team:harbor-city-fc", "number": 4},
+    {"id": "player:jonah-vesterberg", "name": "Jonah Vesterberg", "team": "team:harbor-city-fc", "number": 5},
+    {"id": "player:callum-ashdown", "name": "Callum Ashdown", "team": "team:harbor-city-fc", "number": 6},
+    {"id": "player:tobiah-lark", "name": "Tobiah Lark", "team": "team:harbor-city-fc", "number": 7},
+    {"id": "player:bram-eijsden", "name": "Bram Eijsden", "team": "team:harbor-city-fc", "number": 8},
+    {"id": "player:soren-dahlquist", "name": "Soren Dahlquist", "team": "team:harbor-city-fc", "number": 9},
+    {"id": "player:luca-venturelli", "name": "Luca Venturelli", "team": "team:harbor-city-fc", "number": 10},
+    {"id": "player:kofi-asante-brook", "name": "Kofi Asante-Brook", "team": "team:harbor-city-fc", "number": 11},
+    {"id": "player:amir-rostami-vale", "name": "Amir Rostami-Vale", "team": "team:harbor-city-fc", "number": 14},
+    {"id": "player:felipe-arandela", "name": "Felipe Arandela", "team": "team:harbor-city-fc", "number": 17},
+    {"id": "player:niall-corrigan", "name": "Niall Corrigan", "team": "team:harbor-city-fc", "number": 20},
+    {"id": "player:marek-zielonka", "name": "Marek Zielonka", "team": "team:redcliffe-athletic", "number": 13},
+    {"id": "player:hugo-delacroix-ward", "name": "Hugo Delacroix-Ward", "team": "team:redcliffe-athletic", "number": 2},
+    {"id": "player:elias-nordvik-ames", "name": "Elias Nordvik-Ames", "team": "team:redcliffe-athletic", "number": 3},
+    {"id": "player:oskar-thalberg", "name": "Oskar Thalberg", "team": "team:redcliffe-athletic", "number": 4},
+    {"id": "player:samuel-adeyinka-rhodes", "name": "Samuel Adeyinka-Rhodes", "team": "team:redcliffe-athletic", "number": 5},
+    {"id": "player:rafael-monteverde", "name": "Rafael Monteverde", "team": "team:redcliffe-athletic", "number": 6},
+    {"id": "player:declan-moorcroft", "name": "Declan Moorcroft", "team": "team:redcliffe-athletic", "number": 8},
+    {"id": "player:marlon-ibe-castro", "name": "Marlon Ibe-Castro", "team": "team:redcliffe-athletic", "number": 9},
+    {"id": "player:teodor-vasko", "name": "Teodor Vasko", "team": "team:redcliffe-athletic", "number": 10},
+    {"id": "player:jarrah-whitlock", "name": "Jarrah Whitlock", "team": "team:redcliffe-athletic", "number": 11},
+    {"id": "player:finn-ostergaard", "name": "Finn Ostergaard", "team": "team:redcliffe-athletic", "number": 12},
+    {"id": "player:ruben-szabo-kent", "name": "Ruben Szabo-Kent", "team": "team:redcliffe-athletic", "number": 15},
+    {"id": "player:idris-rahimzadeh", "name": "Idris Rahimzadeh", "team": "team:redcliffe-athletic", "number": 18},
+    {"id": "player:cormac-lyle", "name": "Cormac Lyle", "team": "team:redcliffe-athletic", "number": 21}
+  ],
+  "drivers": []
+}

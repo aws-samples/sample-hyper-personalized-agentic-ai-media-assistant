@@ -1,0 +1,51 @@
+{
+  "_comment": "title_id -> playable video; this table is also the playback allow-list. The micro-dramas ship with media (data/media/microdramas-*.zip, uploaded by load_media.py to clips/microdramas/ in the config mediaBucket). Tears of Steel is optional: download it yourself and upload it to clips/movies/tears-of-steel.mp4 (see README, Scene analysis); rows marked optional are skipped until their video exists. {mediaBucket} is filled in from the environment config. Load with infra/deployment/seed_video_mapping.py.",
+  "items": [
+    {
+      "title_id": "md0000001",
+      "video_name": "long-way-to-gold.mp4",
+      "video_s3_url": "s3://{mediaBucket}/clips/microdramas/long-way-to-gold.mp4"
+    },
+    {
+      "title_id": "md0000002",
+      "video_name": "dust-and-devotion.mp4",
+      "video_s3_url": "s3://{mediaBucket}/clips/microdramas/dust-and-devotion.mp4"
+    },
+    {
+      "title_id": "md0000003",
+      "video_name": "the-last-candle.mp4",
+      "video_s3_url": "s3://{mediaBucket}/clips/microdramas/the-last-candle.mp4"
+    },
+    {
+      "title_id": "md0000004",
+      "video_name": "neon-runner.mp4",
+      "video_s3_url": "s3://{mediaBucket}/clips/microdramas/neon-runner.mp4"
+    },
+    {
+      "title_id": "md0000005",
+      "video_name": "the-silent-call.mp4",
+      "video_s3_url": "s3://{mediaBucket}/clips/microdramas/the-silent-call.mp4"
+    },
+    {
+      "title_id": "md0000006",
+      "video_name": "one-bar.mp4",
+      "video_s3_url": "s3://{mediaBucket}/clips/microdramas/one-bar.mp4"
+    },
+    {
+      "title_id": "md0000007",
+      "video_name": "the-last-floor.mp4",
+      "video_s3_url": "s3://{mediaBucket}/clips/microdramas/the-last-floor.mp4"
+    },
+    {
+      "title_id": "md0000008",
+      "video_name": "dragon-soul.mp4",
+      "video_s3_url": "s3://{mediaBucket}/clips/microdramas/dragon-soul.mp4"
+    },
+    {
+      "title_id": "tt2285752",
+      "video_name": "tears-of-steel.mp4",
+      "video_s3_url": "s3://{mediaBucket}/clips/movies/tears-of-steel.mp4",
+      "optional": true
+    }
+  ]
+}

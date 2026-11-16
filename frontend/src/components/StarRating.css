@@ -1,0 +1,33 @@
+/* Star rating. Everything is em-based so it tracks the font-size of whatever
+   row it sits in (.card-sub, .td-meta, ...) with no extra props. */
+
+.star-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  /* Keeps the number from wrapping away from the star on narrow cards. */
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* Nudged up a hair because the glyph sits low in its em box. */
+.star-rating-star {
+  color: #f5c518;
+  font-size: 1.05em;
+  line-height: 1;
+  transform: translateY(-0.04em);
+}
+
+.star-rating-score {
+  font-weight: 600;
+  /* Tabular figures stop the row from shifting as ratings change between
+     cards during a rail re-render. */
+  font-variant-numeric: tabular-nums;
+  color: inherit;
+}
+
+.star-rating-scale {
+  font-weight: 400;
+  opacity: 0.65;
+  margin-left: 0.1em;
+}

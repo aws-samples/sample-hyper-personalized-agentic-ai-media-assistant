@@ -1,0 +1,5 @@
+# Media and poster archives: binary, never diffed or line-ending converted.
+*.zip binary
+*.mp4 binary
+*.jpg binary
+*.png binary

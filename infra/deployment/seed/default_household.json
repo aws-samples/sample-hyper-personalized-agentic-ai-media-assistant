@@ -1,0 +1,691 @@
+{
+  "version": 2,
+  "description": "Sample household created for every Cognito user at first sign-in. Each member gets its own opaque profile_id. Rows are written in the shape the offline Personalize job overwrites.",
+  "members": [
+    {
+      "member_key": "action-fan",
+      "display_name": "Action Fan",
+      "avatar": {
+        "hue": 10,
+        "icon": "🎬"
+      },
+      "hero": "tt1001113",
+      "rails": [
+        {
+          "rail_key": "top_picks",
+          "display_title": "Top Picks for You",
+          "items": [
+            {
+              "title_id": "tt1001228"
+            },
+            {
+              "title_id": "tt1001400"
+            },
+            {
+              "title_id": "tt1001399"
+            },
+            {
+              "title_id": "tt1001118"
+            },
+            {
+              "title_id": "tt1001163"
+            },
+            {
+              "title_id": "tt1001477"
+            },
+            {
+              "title_id": "tt1001129"
+            },
+            {
+              "title_id": "tt1001440"
+            },
+            {
+              "title_id": "tt1001278"
+            },
+            {
+              "title_id": "tt1001288"
+            },
+            {
+              "title_id": "tt1001185"
+            },
+            {
+              "title_id": "tt1001134"
+            },
+            {
+              "title_id": "tt1001435"
+            },
+            {
+              "title_id": "tt1001397"
+            },
+            {
+              "title_id": "tt1001234"
+            },
+            {
+              "title_id": "tt1001040"
+            },
+            {
+              "title_id": "tt1001222"
+            },
+            {
+              "title_id": "tt1001013"
+            },
+            {
+              "title_id": "tt1001229"
+            },
+            {
+              "title_id": "tt1001212"
+            }
+          ]
+        },
+        {
+          "rail_key": "because_you_watched",
+          "display_title": "Because You Watched Funny Adventure",
+          "items": [
+            {
+              "title_id": "tt1001366",
+              "blurb": "If Funny Adventure's hero kept you hooked, Scuttling Crab delivers more of it."
+            },
+            {
+              "title_id": "tt1001146",
+              "blurb": "Elimination shares the explosions you liked in Funny Adventure, with a story all its own."
+            },
+            {
+              "title_id": "tt1001434",
+              "blurb": "Loved the chase scenes in Funny Adventure? Darting Trout picks up that same energy."
+            },
+            {
+              "title_id": "tt1001179",
+              "blurb": "Another dose of combat, the thing that made Funny Adventure work, in Glory."
+            },
+            {
+              "title_id": "tt1001104",
+              "blurb": "Same gunfights, new characters: Uprising is a natural next stop after Funny Adventure."
+            },
+            {
+              "title_id": "tt1001064",
+              "blurb": "Funny Adventure fans who came for the chase scenes will find plenty of it in Battle."
+            },
+            {
+              "title_id": "tt1001071",
+              "blurb": "Demolition brings the combat of Funny Adventure to a different world."
+            },
+            {
+              "title_id": "tt1001239",
+              "blurb": "For more of the explosions from Funny Adventure, try Tidal Energy."
+            }
+          ]
+        },
+        {
+          "rail_key": "action_thriller",
+          "display_title": "Action & Thriller",
+          "items": [
+            {
+              "title_id": "tt1001165"
+            },
+            {
+              "title_id": "tt1001378"
+            },
+            {
+              "title_id": "tt1001238"
+            },
+            {
+              "title_id": "tt1001392"
+            },
+            {
+              "title_id": "tt1001106"
+            },
+            {
+              "title_id": "tt1001266"
+            },
+            {
+              "title_id": "tt1001452"
+            },
+            {
+              "title_id": "tt1001354"
+            }
+          ]
+        },
+        {
+          "rail_key": "scifi_epic",
+          "display_title": "Sci-Fi Epic",
+          "items": [
+            {
+              "title_id": "tt2285752"
+            },
+            {
+              "title_id": "tt1001329"
+            },
+            {
+              "title_id": "tt1001167"
+            },
+            {
+              "title_id": "tt1001052"
+            },
+            {
+              "title_id": "tt1001255"
+            },
+            {
+              "title_id": "tt1001413"
+            },
+            {
+              "title_id": "tt1001296"
+            },
+            {
+              "title_id": "tt1001021"
+            }
+          ]
+        }
+      ],
+      "my_list": [
+        "tt2285752",
+        "tt1001183",
+        "tt1001066",
+        "tt1001123",
+        "tt1001068",
+        "tt1001325",
+        "tt1001213",
+        "md0000004"
+      ],
+      "declared": {
+        "excluded_genres": [],
+        "avoid_themes": [
+          "excessive gore",
+          "animal cruelty"
+        ],
+        "languages": [
+          "en"
+        ],
+        "subtitles": "off",
+        "max_length_minutes": null,
+        "followed": {
+          "teams": [],
+          "players": [],
+          "drivers": [],
+          "talent": []
+        },
+        "consent": {
+          "personalization_from_history": true,
+          "conversation_memory": true
+        }
+      },
+      "affinities": {
+        "entities": {
+          "genre:action": {
+            "s": 0.7,
+            "n": 10,
+            "label": "Action"
+          },
+          "genre:sci-fi": {
+            "s": 0.7,
+            "n": 10,
+            "label": "Sci-Fi"
+          },
+          "genre:drama": {
+            "s": 0.7,
+            "n": 10,
+            "label": "Drama"
+          }
+        },
+        "notes": [
+          "preferred era: 2010s-present",
+          "weekday evening: light drama or comedy",
+          "weekend: epic sci-fi or thriller"
+        ]
+      },
+      "watched": [
+        {
+          "title_id": "tt1001028",
+          "content_type": "movie"
+        },
+        {
+          "title_id": "tt1001025",
+          "content_type": "movie"
+        },
+        {
+          "title_id": "tt1001476",
+          "content_type": "movie"
+        },
+        {
+          "title_id": "tt1001175",
+          "content_type": "movie"
+        }
+      ]
+    },
+    {
+      "member_key": "rom-com-lover",
+      "display_name": "Rom-Com Lover",
+      "avatar": {
+        "hue": 335,
+        "icon": "💕"
+      },
+      "hero": "tt1001164",
+      "rails": [
+        {
+          "rail_key": "top_picks",
+          "display_title": "Top Picks for You",
+          "items": [
+            {
+              "title_id": "tt1001444"
+            },
+            {
+              "title_id": "tt1001391"
+            },
+            {
+              "title_id": "tt1001400"
+            },
+            {
+              "title_id": "tt1001183"
+            },
+            {
+              "title_id": "tt1001394"
+            },
+            {
+              "title_id": "tt1001233"
+            },
+            {
+              "title_id": "tt1001066"
+            },
+            {
+              "title_id": "tt1001089"
+            },
+            {
+              "title_id": "tt1001423"
+            },
+            {
+              "title_id": "tt1001322"
+            },
+            {
+              "title_id": "tt1001278"
+            },
+            {
+              "title_id": "tt1001288"
+            },
+            {
+              "title_id": "tt1001088"
+            },
+            {
+              "title_id": "tt1001166"
+            },
+            {
+              "title_id": "tt1001134"
+            },
+            {
+              "title_id": "tt1001436"
+            },
+            {
+              "title_id": "tt1001286"
+            },
+            {
+              "title_id": "tt1001272"
+            },
+            {
+              "title_id": "tt1001184"
+            },
+            {
+              "title_id": "tt1001068"
+            }
+          ]
+        },
+        {
+          "rail_key": "because_you_watched",
+          "display_title": "Because You Watched Beyond Magic World",
+          "items": [
+            {
+              "title_id": "tt1001032",
+              "blurb": "If Beyond Magic World's comedy club kept you hooked, Funny Tales delivers more of it."
+            },
+            {
+              "title_id": "tt1001022",
+              "blurb": "Funny Night shares the improvisation you liked in Beyond Magic World, with a story all its own."
+            },
+            {
+              "title_id": "tt1001009",
+              "blurb": "Loved the improvisation in Beyond Magic World? Animated Adventure picks up that same energy."
+            },
+            {
+              "title_id": "tt1001018",
+              "blurb": "Another dose of laughter, the thing that made Beyond Magic World work, in Joke Show."
+            },
+            {
+              "title_id": "tt1001038",
+              "blurb": "Same comedy club, new characters: Colorful Tales is a natural next stop after Beyond Magic World."
+            },
+            {
+              "title_id": "tt1001005",
+              "blurb": "Beyond Magic World fans who came for the improvisation will find plenty of it in Laugh Night."
+            },
+            {
+              "title_id": "tt1001024",
+              "blurb": "Funny Story brings the parody of Beyond Magic World to a different world."
+            },
+            {
+              "title_id": "tt1001036",
+              "blurb": "For more of the slapstick from Beyond Magic World, try Funny Club."
+            }
+          ]
+        },
+        {
+          "rail_key": "heartfelt_romantic",
+          "display_title": "Heartfelt & Romantic",
+          "items": [
+            {
+              "title_id": "tt1001228"
+            },
+            {
+              "title_id": "tt1001118"
+            },
+            {
+              "title_id": "tt1001165"
+            },
+            {
+              "title_id": "tt1001185"
+            },
+            {
+              "title_id": "tt1001435"
+            },
+            {
+              "title_id": "tt1001213"
+            }
+          ]
+        },
+        {
+          "rail_key": "light_fun",
+          "display_title": "Light & Fun",
+          "items": [
+            {
+              "title_id": "tt1001230"
+            },
+            {
+              "title_id": "tt1001397"
+            },
+            {
+              "title_id": "tt1001115"
+            },
+            {
+              "title_id": "tt1001222"
+            },
+            {
+              "title_id": "tt1001393"
+            },
+            {
+              "title_id": "tt1001290"
+            }
+          ]
+        }
+      ],
+      "my_list": [
+        "md0000002",
+        "tt1001252",
+        "tt1001301",
+        "tt1001096",
+        "tt1001046",
+        "tt1001463",
+        "tt1001033"
+      ],
+      "declared": {
+        "excluded_genres": [],
+        "avoid_themes": [
+          "excessive gore"
+        ],
+        "languages": [
+          "en"
+        ],
+        "subtitles": "off",
+        "max_length_minutes": null,
+        "followed": {
+          "teams": [],
+          "players": [],
+          "drivers": [],
+          "talent": []
+        },
+        "consent": {
+          "personalization_from_history": true,
+          "conversation_memory": true
+        }
+      },
+      "affinities": {
+        "entities": {
+          "genre:comedy": {
+            "s": 0.7,
+            "n": 10,
+            "label": "Comedy"
+          },
+          "genre:romance": {
+            "s": 0.7,
+            "n": 10,
+            "label": "Romance"
+          },
+          "genre:family": {
+            "s": 0.7,
+            "n": 10,
+            "label": "Family"
+          }
+        },
+        "notes": [
+          "preferred era: 2000s-present",
+          "weekday evening: light drama or comedy",
+          "weekend: epic family or musical"
+        ]
+      },
+      "watched": [
+        {
+          "title_id": "tt1001048",
+          "content_type": "movie"
+        },
+        {
+          "title_id": "tt1001156",
+          "content_type": "movie"
+        }
+      ]
+    },
+    {
+      "member_key": "sports-fan",
+      "display_name": "Sports Fan",
+      "avatar": {
+        "hue": 150,
+        "icon": "⚽"
+      },
+      "hero": "tt1001435",
+      "rails": [
+        {
+          "rail_key": "top_picks",
+          "display_title": "Top Picks for You",
+          "items": [
+            {
+              "title_id": "tt1001113"
+            },
+            {
+              "title_id": "tt1001399"
+            },
+            {
+              "title_id": "tt1001477"
+            },
+            {
+              "title_id": "tt1001129"
+            },
+            {
+              "title_id": "tt1001440"
+            },
+            {
+              "title_id": "tt1001165"
+            },
+            {
+              "title_id": "tt1001185"
+            },
+            {
+              "title_id": "tt1001366"
+            },
+            {
+              "title_id": "tt1001146"
+            },
+            {
+              "title_id": "tt1001397"
+            }
+          ]
+        },
+        {
+          "rail_key": "because_you_watched",
+          "display_title": "Because You Watched Burrowing Mole",
+          "items": [
+            {
+              "title_id": "tt1001213",
+              "blurb": "If Burrowing Mole's relationships kept you hooked, Twenty Ninth Century delivers more of it."
+            },
+            {
+              "title_id": "tt1001252",
+              "blurb": "Whistling Marmot shares the redemption you liked in Burrowing Mole, with a story all its own."
+            },
+            {
+              "title_id": "tt1001301",
+              "blurb": "Loved the relationships in Burrowing Mole? Fifty First Century picks up that same energy."
+            },
+            {
+              "title_id": "tt1001096",
+              "blurb": "Another dose of relationships, the thing that made Burrowing Mole work, in Fading Light."
+            },
+            {
+              "title_id": "tt1001016",
+              "blurb": "Same voice acting, new characters: Wonderful Tales is a natural next stop after Burrowing Mole."
+            },
+            {
+              "title_id": "tt1001033",
+              "blurb": "Burrowing Mole fans who came for the redemption will find plenty of it in Beyond Wonder Place."
+            },
+            {
+              "title_id": "tt1001240",
+              "blurb": "Nesting Sparrow brings the family of Burrowing Mole to a different world."
+            },
+            {
+              "title_id": "tt1001156",
+              "blurb": "For more of the relationships from Burrowing Mole, try Fifth Element."
+            }
+          ]
+        },
+        {
+          "rail_key": "racing",
+          "display_title": "Full Throttle",
+          "items": [
+            {
+              "title_id": "tt1001434"
+            },
+            {
+              "title_id": "tt1001179"
+            },
+            {
+              "title_id": "tt1001013"
+            },
+            {
+              "title_id": "tt1001104"
+            },
+            {
+              "title_id": "tt1001236"
+            },
+            {
+              "title_id": "tt1001095"
+            },
+            {
+              "title_id": "tt1001028"
+            }
+          ]
+        },
+        {
+          "rail_key": "sports_series",
+          "display_title": "Team Spirit",
+          "items": [
+            {
+              "title_id": "tt1001183"
+            },
+            {
+              "title_id": "tt1001394"
+            },
+            {
+              "title_id": "tt1001233"
+            },
+            {
+              "title_id": "tt1001089"
+            },
+            {
+              "title_id": "tt1001322"
+            },
+            {
+              "title_id": "tt1001068"
+            },
+            {
+              "title_id": "tt1001325"
+            },
+            {
+              "title_id": "tt1001336"
+            }
+          ]
+        }
+      ],
+      "my_list": [
+        "tt1001040",
+        "tt1001115",
+        "tt1001222"
+      ],
+      "declared": {
+        "excluded_genres": [],
+        "avoid_themes": [],
+        "languages": [
+          "en"
+        ],
+        "subtitles": "off",
+        "max_length_minutes": null,
+        "followed": {
+          "teams": [
+            {
+              "name": "Harbor City FC",
+              "id": "team:harbor-city-fc"
+            }
+          ],
+          "players": [],
+          "drivers": [],
+          "talent": []
+        },
+        "consent": {
+          "personalization_from_history": true,
+          "conversation_memory": true
+        }
+      },
+      "affinities": {
+        "entities": {
+          "genre:sport": {
+            "s": 0.7,
+            "n": 10,
+            "label": "Sport"
+          },
+          "genre:drama": {
+            "s": 0.7,
+            "n": 10,
+            "label": "Drama"
+          },
+          "genre:action": {
+            "s": 0.6,
+            "n": 8,
+            "label": "Action"
+          }
+        },
+        "notes": [
+          "preferred era: 2000s-present",
+          "weekday evening: uplifting team dramas",
+          "weekend: high-energy action and live games"
+        ]
+      },
+      "watched": [
+        {
+          "title_id": "tt1001228",
+          "content_type": "movie"
+        },
+        {
+          "title_id": "tt1001118",
+          "content_type": "movie"
+        },
+        {
+          "title_id": "tt1001066",
+          "content_type": "movie"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,371 @@
+You are a movie recommendation assistant for a streaming service.
+Recommend titles ONLY from the CATALOG below.
+
+Default ranking (apply UNLESS the user's request specifies otherwise):
+- Among titles that fit the request, prefer more recent releases (higher year)
+  and more popular, higher-rated titles (higher rating).
+- Relevance to the request always comes first; use recency and rating only as
+  tie-breakers between similarly relevant titles.
+- If the user asks for something different (a specific era or decade, classics,
+  hidden gems, lower-rated or obscure picks), follow the user instead.
+
+Return ONLY the recommended titles, one per line, each formatted EXACTLY as:
+  <Title> [<title_id>]
+where <title_id> is the bracketed id shown for that entry in the catalog
+(e.g. "Quantum Storm [tt1001001]"). Return NOTHING else.
+
+CATALOG:
+- Forty First Century (1972, movie) [tt1001261] | family | rating 7.6 | A heartwarming tale for the whole family, Forty First Century celebrates the bonds that hold us toge
+  cast: Dad Smith, Friend Alex, Nurse Jenny, Brother Jake, Nephew Tim | crew: Director Jones, Producer Taylor
+- Basking Lizard (2002, movie) [tt1001262] | drama | rating 6.4 | A powerful and moving story, Basking Lizard explores the depths of human emotion and the resilience 
+  cast: William Hope, Mary Rose, Helen Moon, David Light, Margaret Faith | crew: Director Brown, Producer Taylor
+- Forty Second Century (1981, movie) [tt1001265] | drama, sci-fi | rating 7.6 | A powerful and moving story, Forty Second Century explores the depths of human emotion and the resil
+  cast: Sarah Joy, David Light, Faith Sky, Rebecca Dawn, Grace Fire | crew: Director Jones, Producer Wilson
+- Resting Sloth (1972, movie) [tt1001266] | animation, family, action | rating 8.6 | Enter the enchanting world of Resting Sloth, where imagination comes to life in spectacular animated
+  cast: Canvas Carl, Studio Sam, Picture Pete, Marker Mike, Museum Max | crew: Director Brown, Producer Davis
+- Microgrid Systems (1976, movie) [tt1001267] | animation, family | rating 9.0 | Enter the enchanting world of Microgrid Systems, where imagination comes to life in spectacular anim
+  cast: Easel Eddie, Crayon Kate, Picture Pete, Design Dave, Artistic Amy | crew: Director Williams, Producer Wilson
+- Forty Fourth Century (1978, movie) [tt1001273] | family, comedy, animation | rating 7.1 | A heartwarming tale for the whole family, Forty Fourth Century celebrates the bonds that hold us tog
+  cast: Librarian Kate, Student Amy, Teacher Miss Davis, Farmer Bill, Nurse Jenny | crew: Director Brown, Producer Moore
+- Hissing Snake (1973, movie) [tt1001274] | animation | rating 8.7 | Enter the enchanting world of Hissing Snake, where imagination comes to life in spectacular animated
+  cast: Gallery Gail, Crayon Kate, Doodle Dan, Bright Betty, Colorful Cole | crew: Director Smith, Producer Davis
+- Pumped Storage (1960, movie) [tt1001275] | family, drama, sci-fi | rating 7.4 | A heartwarming tale for the whole family, Pumped Storage celebrates the bonds that hold us together 
+  cast: Mailman Pete, Sister Emma, Cousin Lucy, Neighbor Joe, Shopkeeper Ann | crew: Director Johnson, Producer Taylor
+- Bleating Goat (2019, movie) [tt1001276] | sci-fi, drama, comedy | rating 8.3 | In the distant reaches of space, Bleating Goat explores humanity's place in the cosmos. When first c
+  cast: Discoverer Atomic, Maker Android, Operator Code, Inventor Cyborg, Captain Nova | crew: Director Johnson, Producer Moore
+- Quantum Physics (2000, movie) [tt1001278] | sci-fi, comedy | rating 9.3 | In the distant reaches of space, Quantum Physics explores humanity's place in the cosmos. When first
+  cast: Scientist Luna, Developer Virtual, Engineer Cyber, Commander Zara, Explorer Orion | crew: Director Smith, Producer Taylor
+- Forty Sixth Century (1994, movie) [tt1001281] | comedy, family, drama | rating 8.5 | In the uproarious comedy Forty Sixth Century, ordinary life becomes extraordinarily funny when every
+  cast: Harry Hilarious, Ollie Outrageous, Wally Wacky, Kenny Kidder, Eddie Jokes | crew: Director Brown, Producer Miller
+- Danger Zone (2023, movie) [tt1001282] | action, family | rating 7.6 | When the world faces an unprecedented threat, Danger Zone brings together an unlikely group of heroe
+  cast: Blade Runner, Viper Deadly, Tiger Claw, Panther Swift, Falcon Fast | crew: Director Jones, Producer Wilson
+- Compressed Air (1983, movie) [tt1001283] | sci-fi, family | rating 7.7 | In a future transformed by technology, Compressed Air examines the thin line between progress and pe
+  cast: Scientist Luna, Inventor Cyborg, Operator Code, Specialist Data, Creator Synthetic | crew: Director Smith, Producer Miller
+- Forty Seventh Century (2000, movie) [tt1001285] | animation | rating 8.5 | The beautifully animated Forty Seventh Century brings to life a world where anything is possible and
+  cast: Buddy Cartoon, Doodle Dan, Museum Max, Bright Betty, Colorful Cole | crew: Director Johnson, Producer Moore
+- Prancing Pony (2004, movie) [tt1001286] | animation, comedy, family | rating 9.2 | The beautifully animated Prancing Pony brings to life a world where anything is possible and every f
+  cast: Creative Chris, Buddy Cartoon, Sketchy Pete, Studio Sam, Colorful Cole | crew: Director Smith, Producer Taylor
+- Flywheel Storage (1961, movie) [tt1001287] | action, comedy | rating 7.0 | When the world faces an unprecedented threat, Flywheel Storage brings together an unlikely group of 
+  cast: Scorpion Sting, Phoenix Dark, Cole Strike, Viper Deadly, Storm Shadow | crew: Director Johnson, Producer Wilson
+- Braying Donkey (1990, movie) [tt1001288] | sci-fi, comedy, family | rating 9.3 | In the distant reaches of space, Braying Donkey explores humanity's place in the cosmos. When first 
+  cast: Designer Digital, Developer Virtual, Commander Zara, Founder Molecular, Technician Binary | crew: Director Johnson, Producer Miller
+- Forty Eighth Century (1965, movie) [tt1001289] | animation | rating 8.3 | Enter the enchanting world of Forty Eighth Century, where imagination comes to life in spectacular a
+  cast: Studio Sam, Artie Brush, Picture Pete, Marker Mike, Gallery Gail | crew: Director Jones, Producer Moore
+- Supercapacitors (2003, movie) [tt1001291] | drama | rating 7.7 | A powerful and moving story, Supercapacitors explores the depths of human emotion and the resilience
+  cast: David Light, Michael Peace, Elizabeth Grace, Hope Ocean, Rebecca Dawn | crew: Director Williams, Producer Taylor
+- Clucking Chicken (2015, movie) [tt1001292] | drama, animation, comedy | rating 6.3 | A powerful and moving story, Clucking Chicken explores the depths of human emotion and the resilienc
+  cast: Elizabeth Grace, Sarah Joy, Robert Hill, James River, Margaret Faith | crew: Director Williams, Producer Wilson
+- Breaking Point (1981, movie) [tt1001294] | drama | rating 6.1 | A powerful and moving story, Breaking Point explores the depths of human emotion and the resilience 
+  cast: Catherine Love, Rebecca Dawn, David Light, Ruth Star, Elizabeth Grace | crew: Director Brown, Producer Wilson
+- Honking Goose (1962, movie) [tt1001296] | sci-fi, drama, family | rating 8.8 | In the distant reaches of space, Honking Goose explores humanity's place in the cosmos. When first c
+  cast: Technician Binary, Discoverer Atomic, Scientist Luna, Agent Matrix, Inventor Cyborg | crew: Director Jones, Producer Taylor
+- Fiftieth Century (1999, movie) [tt1001297] | comedy, animation | rating 6.0 | In the uproarious comedy Fiftieth Century, ordinary life becomes extraordinarily funny when everythi
+  cast: Gary Gags, Pete Prankster, Ollie Outrageous, Danny Giggles, Izzy Amusing | crew: Director Jones, Producer Wilson
+- Fun Time (1983, movie) [tt1001298] | family, drama, sci-fi | rating 6.1 | A heartwarming tale for the whole family, Fun Time celebrates the bonds that hold us together and th
+  cast: Sister Emma, Nurse Jenny, Niece Sue, Shopkeeper Ann, Student Amy | crew: Director Jones, Producer Wilson
+- Quacking Duck (2011, movie) [tt1001300] | sci-fi, animation | rating 8.0 | In the distant reaches of space, Quacking Duck explores humanity's place in the cosmos. When first c
+  cast: Researcher Neural, Explorer Orion, Technician Binary, Dr. Quantum, Pioneer Genetic | crew: Director Brown, Producer Miller
+- Fifty First Century (2021, movie) [tt1001301] | drama, sci-fi, animation | rating 9.0 | A powerful and moving story, Fifty First Century explores the depths of human emotion and the resili
+  cast: Michael Peace, Margaret Faith, Rebecca Dawn, Charles Sun, Thomas Truth | crew: Director Brown, Producer Davis
+- Crowing Rooster (1991, movie) [tt1001302] | comedy | rating 6.4 | Life takes an unexpected turn in Crowing Rooster, a hilarious comedy that proves laughter truly is t
+  cast: Izzy Amusing, Joey Jester, Danny Giggles, Ricky Ridiculous, Benny Laughs | crew: Director Jones, Producer Taylor
+- Liquid Air (2004, movie) [tt1001303] | animation, family | rating 8.7 | Enter the enchanting world of Liquid Air, where imagination comes to life in spectacular animated fo
+  cast: Studio Sam, Palette Pat, Doodle Dan, Artistic Amy, Easel Eddie | crew: Director Johnson, Producer Miller
+- Gobbling Turkey (1970, movie) [tt1001304] | animation, sci-fi, family | rating 8.5 | The beautifully animated Gobbling Turkey brings to life a world where anything is possible and every
+  cast: Canvas Carl, Picture Pete, Artie Brush, Bright Betty, Frame Frank | crew: Director Jones, Producer Davis
+- Fifty Second Century (2009, movie) [tt1001305] | family, animation, sci-fi | rating 6.0 | A heartwarming tale for the whole family, Fifty Second Century celebrates the bonds that hold us tog
+  cast: Nephew Tim, Shopkeeper Ann, Friend Alex, Cousin Lucy, Mailman Pete | crew: Director Brown, Producer Taylor
+- Molten Salt (1997, movie) [tt1001307] | animation, drama, action | rating 8.4 | Enter the enchanting world of Molten Salt, where imagination comes to life in spectacular animated f
+  cast: Image Ida, Design Dave, Marker Mike, Gallery Gail, Painter Paul | crew: Director Jones, Producer Taylor
+- Pecking Hen (1982, movie) [tt1001308] | family, drama | rating 6.1 | A heartwarming tale for the whole family, Pecking Hen celebrates the bonds that hold us together and
+  cast: Aunt Mary, Baker Tom, Nephew Tim, Coach Mike, Neighbor Joe | crew: Director Johnson, Producer Moore
+- Fifty Third Century (1968, movie) [tt1001309] | family | rating 7.6 | A heartwarming tale for the whole family, Fifty Third Century celebrates the bonds that hold us toge
+  cast: Mailman Pete, Cousin Lucy, Teacher Miss Davis, Neighbor Joe, Coach Mike | crew: Director Jones, Producer Moore
+- Strutting Peacock (2020, movie) [tt1001310] | action, sci-fi, comedy | rating 7.1 | When the world faces an unprecedented threat, Strutting Peacock brings together an unlikely group of
+  cast: Rex Hunter, Cole Strike, Wolf Grey, Blade Runner, Cobra Strike | crew: Director Jones, Producer Taylor
+- Hydrogen Storage (2016, movie) [tt1001311] | family | rating 7.5 | A heartwarming tale for the whole family, Hydrogen Storage celebrates the bonds that hold us togethe
+  cast: Uncle Bob, Teacher Miss Davis, Shopkeeper Ann, Aunt Mary, Librarian Kate | crew: Director Smith, Producer Davis
+- Warbling Songbird (2017, movie) [tt1001312] | drama, sci-fi | rating 8.1 | In the compelling drama Warbling Songbird, ordinary people face extraordinary circumstances that tes
+  cast: Michael Peace, Catherine Love, Sarah Joy, James River, Margaret Faith | crew: Director Jones, Producer Davis
+- Silver Lining (2022, movie) [tt1001314] | drama, action, animation | rating 8.2 | In the compelling drama Silver Lining, ordinary people face extraordinary circumstances that test th
+  cast: James River, Sarah Joy, Helen Moon, Martha Rain, John Earth | crew: Director Johnson, Producer Taylor
+- Preening Parrot (1964, movie) [tt1001318] | action | rating 7.8 | When the world faces an unprecedented threat, Preening Parrot brings together an unlikely group of h
+  cast: Panther Swift, Cole Strike, Falcon Fast, Scorpion Sting, Max Thunder | crew: Director Johnson, Producer Miller
+- Synthetic Fuels (1979, movie) [tt1001319] | family | rating 7.0 | A heartwarming tale for the whole family, Synthetic Fuels celebrates the bonds that hold us together
+  cast: Dad Smith, Student Amy, Grandma Wilson, Nephew Tim, Mom Johnson | crew: Director Johnson, Producer Moore
+- Chattering Magpie (2007, movie) [tt1001320] | drama, animation, family | rating 7.1 | A powerful and moving story, Chattering Magpie explores the depths of human emotion and the resilien
+  cast: David Light, James River, Peter Snow, Anna Stone, William Hope | crew: Director Brown, Producer Wilson
+- Fifty Sixth Century (2024, movie) [tt1001321] | drama, sci-fi, comedy | rating 8.4 | A powerful and moving story, Fifty Sixth Century explores the depths of human emotion and the resili
+  cast: Paul Wind, James River, Martha Rain, Robert Hill, Sarah Joy | crew: Director Smith, Producer Wilson
+- Chirping Canary (1994, movie) [tt1001324] | comedy | rating 7.8 | Life takes an unexpected turn in Chirping Canary, a hilarious comedy that proves laughter truly is t
+  cast: Danny Giggles, Ziggy Zany, Artie Absurd, Sammy Silly, Joey Jester | crew: Director Brown, Producer Miller
+- Fifty Seventh Century (2025, movie) [tt1001325] | family, drama | rating 9.1 | A heartwarming tale for the whole family, Fifty Seventh Century celebrates the bonds that hold us to
+  cast: Student Amy, Cousin Lucy, Mom Johnson, Friend Alex, Nephew Tim | crew: Director Jones, Producer Taylor
+- Trilling Nightingale (1983, movie) [tt1001326] | action, family, sci-fi | rating 7.9 | When the world faces an unprecedented threat, Trilling Nightingale brings together an unlikely group
+  cast: Jake Steel, Shark Bite, Max Thunder, Falcon Fast, Viper Deadly | crew: Director Smith, Producer Wilson
+- Biodiesel Storage (2014, movie) [tt1001327] | family, animation, action | rating 7.6 | A heartwarming tale for the whole family, Biodiesel Storage celebrates the bonds that hold us togeth
+  cast: Sister Emma, Aunt Mary, Cousin Lucy, Mom Johnson, Uncle Bob | crew: Director Brown, Producer Taylor
+- Fifty Eighth Century (1983, movie) [tt1001329] | sci-fi, animation | rating 9.4 | In the distant reaches of space, Fifty Eighth Century explores humanity's place in the cosmos. When 
+  cast: Maker Android, Inventor Cyborg, Developer Virtual, Discoverer Atomic, Specialist Data | crew: Director Smith, Producer Moore
+- Fifty Ninth Century (1982, movie) [tt1001333] | animation, drama, comedy | rating 8.1 | Enter the enchanting world of Fifty Ninth Century, where imagination comes to life in spectacular an
+  cast: Penny Pencil, Marker Mike, Creative Chris, Doodle Dan, Visual Vince | crew: Director Brown, Producer Taylor
+- Biogas Storage (1963, movie) [tt1001335] | animation | rating 8.6 | Enter the enchanting world of Biogas Storage, where imagination comes to life in spectacular animate
+  cast: Sketchy Pete, Marker Mike, Studio Sam, Visual Vince, Easel Eddie | crew: Director Johnson, Producer Wilson
+- Nursery Rhymes (2001, movie) [tt1001336] | family, sci-fi, animation | rating 9.1 | A heartwarming tale for the whole family, Nursery Rhymes celebrates the bonds that hold us together 
+  cast: Teacher Miss Davis, Principal Mr. Green, Mailman Pete, Mom Johnson, Baker Tom | crew: Director Williams, Producer Wilson
+- Sixtieth Century (1995, movie) [tt1001337] | drama | rating 7.0 | A powerful and moving story, Sixtieth Century explores the depths of human emotion and the resilienc
+  cast: Catherine Love, Charles Sun, Peter Snow, William Hope, Margaret Faith | crew: Director Johnson, Producer Moore
+- Diving Kingfisher (2025, movie) [tt1001338] | animation, sci-fi | rating 7.7 | Enter the enchanting world of Diving Kingfisher, where imagination comes to life in spectacular anim
+  cast: Painter Paul, Graphic Grace, Artie Brush, Museum Max, Crayon Kate | crew: Director Smith, Producer Wilson
+- Pecking Toucan (1975, movie) [tt1001340] | drama, action | rating 6.7 | A powerful and moving story, Pecking Toucan explores the depths of human emotion and the resilience 
+  cast: Peter Snow, Robert Hill, Martha Rain, Elizabeth Grace, Mary Rose | crew: Director Smith, Producer Moore
+- Sixty First Century (1991, movie) [tt1001341] | drama, sci-fi, action | rating 7.0 | A powerful and moving story, Sixty First Century explores the depths of human emotion and the resili
+  cast: Michael Peace, Faith Sky, Catherine Love, John Earth, Ruth Star | crew: Director Williams, Producer Wilson
+- Perching Bluebird (2006, movie) [tt1001342] | comedy, family, drama | rating 6.1 | Life takes an unexpected turn in Perching Bluebird, a hilarious comedy that proves laughter truly is
+  cast: Eddie Jokes, Quincy Quirky, Mickey Mirth, Wally Wacky, Gary Gags | crew: Director Brown, Producer Taylor
+- Butane Storage (2008, movie) [tt1001343] | sci-fi, comedy, animation | rating 7.2 | In the distant reaches of space, Butane Storage explores humanity's place in the cosmos. When first 
+  cast: Navigator Vega, Researcher Neural, Technician Binary, Dr. Quantum, Developer Virtual | crew: Director Johnson, Producer Taylor
+- Color Palette (1969, movie) [tt1001344] | animation, comedy | rating 8.1 | Enter the enchanting world of Color Palette, where imagination comes to life in spectacular animated
+  cast: Sketchy Pete, Canvas Carl, Artie Brush, Picture Pete, Graphic Grace | crew: Director Williams, Producer Davis
+- Sixty Second Century (2025, movie) [tt1001345] | comedy | rating 6.4 | In the uproarious comedy Sixty Second Century, ordinary life becomes extraordinarily funny when ever
+  cast: Freddy Fun, Artie Absurd, Mickey Mirth, Joey Jester, Gary Gags | crew: Director Williams, Producer Wilson
+- Nesting Swallow (1975, movie) [tt1001346] | drama, family | rating 7.8 | A powerful and moving story, Nesting Swallow explores the depths of human emotion and the resilience
+  cast: Michael Peace, Sarah Joy, Mary Rose, Charles Sun, Faith Sky | crew: Director Williams, Producer Moore
+- Methane Storage (1970, movie) [tt1001347] | animation, drama, sci-fi | rating 7.0 | Enter the enchanting world of Methane Storage, where imagination comes to life in spectacular animat
+  cast: Doodle Dan, Studio Sam, Canvas Carl, Artistic Amy, Palette Pat | crew: Director Smith, Producer Moore
+- Hovering Dragonfly (1989, movie) [tt1001352] | comedy, sci-fi, animation | rating 7.1 | In the uproarious comedy Hovering Dragonfly, ordinary life becomes extraordinarily funny when everyt
+  cast: Danny Giggles, Barney Bizarre, Izzy Amusing, Charlie Chuckle, Larry Laugher | crew: Director Jones, Producer Taylor
+- Sixty Fourth Century (1966, movie) [tt1001353] | comedy, animation | rating 6.7 | Life takes an unexpected turn in Sixty Fourth Century, a hilarious comedy that proves laughter truly
+  cast: Wally Wacky, Ziggy Zany, Charlie Chuckle, Vinny Witty, Mickey Mirth | crew: Director Williams, Producer Wilson
+- Gliding Pelican (1979, movie) [tt1001354] | action | rating 8.5 | When the world faces an unprecedented threat, Gliding Pelican brings together an unlikely group of h
+  cast: Raven Black, Snake Quick, Phoenix Dark, Panther Swift, Viper Deadly | crew: Director Jones, Producer Davis
+- Fluttering Moth (1975, movie) [tt1001356] | comedy, action, sci-fi | rating 8.7 | Life takes an unexpected turn in Fluttering Moth, a hilarious comedy that proves laughter truly is t
+  cast: Freddy Fun, Mickey Mirth, Danny Giggles, Tommy Tickles, Nicky Nutty | crew: Director Jones, Producer Davis
+- Sixty Fifth Century (1980, movie) [tt1001357] | family | rating 8.4 | A heartwarming tale for the whole family, Sixty Fifth Century celebrates the bonds that hold us toge
+  cast: Mailman Pete, Nurse Jenny, Grandpa Brown, Dad Smith, Mom Johnson | crew: Director Brown, Producer Wilson
+- Crawling Beetle (2004, movie) [tt1001358] | family, drama, animation | rating 6.2 | A heartwarming tale for the whole family, Crawling Beetle celebrates the bonds that hold us together
+  cast: Principal Mr. Green, Librarian Kate, Doctor Lisa, Student Amy, Aunt Mary | crew: Director Jones, Producer Davis
+- Liquefied Petroleum (2020, movie) [tt1001359] | drama | rating 6.3 | A powerful and moving story, Liquefied Petroleum explores the depths of human emotion and the resili
+  cast: Martha Rain, Anna Stone, Peter Snow, Thomas Truth, Charles Sun | crew: Director Smith, Producer Wilson
+- Buzzing Wasp (2020, movie) [tt1001360] | action | rating 6.2 | When the world faces an unprecedented threat, Buzzing Wasp brings together an unlikely group of hero
+  cast: Shark Bite, Rex Hunter, Bull Tough, Scorpion Sting, Blade Runner | crew: Director Johnson, Producer Taylor
+- Sixty Sixth Century (2023, movie) [tt1001361] | comedy, animation, action | rating 8.7 | Life takes an unexpected turn in Sixty Sixth Century, a hilarious comedy that proves laughter truly 
+  cast: Joey Jester, Freddy Fun, Nicky Nutty, Ziggy Zany, Wally Wacky | crew: Director Johnson, Producer Wilson
+- Marching Ant (1979, movie) [tt1001362] | action, family, drama | rating 8.1 | When the world faces an unprecedented threat, Marching Ant brings together an unlikely group of hero
+  cast: Falcon Fast, Viper Deadly, Fox Clever, Bull Tough, Blade Runner | crew: Director Jones, Producer Davis
+- Sixty Seventh Century (1982, movie) [tt1001365] | animation, family, drama | rating 8.8 | Enter the enchanting world of Sixty Seventh Century, where imagination comes to life in spectacular 
+  cast: Marker Mike, Frame Frank, Image Ida, Sketchy Pete, Penny Pencil | crew: Director Brown, Producer Miller
+- Scuttling Crab (1996, movie) [tt1001366] | action, animation | rating 9.2 | When the world faces an unprecedented threat, Scuttling Crab brings together an unlikely group of he
+  cast: Hawk Eye, Fox Clever, Bull Tough, Storm Shadow, Bear Strong | crew: Director Williams, Producer Wilson
+- Biomass Gasification (1974, movie) [tt1001367] | family, action, sci-fi | rating 6.5 | A heartwarming tale for the whole family, Biomass Gasification celebrates the bonds that hold us tog
+  cast: Grandma Wilson, Librarian Kate, Mailman Pete, Doctor Lisa, Friend Alex | crew: Director Jones, Producer Taylor
+- Crawling Lobster (1985, movie) [tt1001368] | animation, family, sci-fi | rating 6.7 | The beautifully animated Crawling Lobster brings to life a world where anything is possible and ever
+  cast: Easel Eddie, Colorful Cole, Marker Mike, Gallery Gail, Palette Pat | crew: Director Jones, Producer Moore
+- Sixty Eighth Century (2025, movie) [tt1001369] | animation, comedy, sci-fi | rating 7.4 | Enter the enchanting world of Sixty Eighth Century, where imagination comes to life in spectacular a
+  cast: Doodle Dan, Picture Pete, Graphic Grace, Sketchy Pete, Creative Chris | crew: Director Jones, Producer Miller
+- Snapping Shrimp (1986, movie) [tt1001370] | animation | rating 7.6 | The beautifully animated Snapping Shrimp brings to life a world where anything is possible and every
+  cast: Easel Eddie, Marker Mike, Design Dave, Image Ida, Buddy Cartoon | crew: Director Johnson, Producer Taylor
+- Waste Gasification (2007, movie) [tt1001371] | sci-fi, animation, drama | rating 7.9 | In the distant reaches of space, Waste Gasification explores humanity's place in the cosmos. When fi
+  cast: Commander Zara, Dr. Quantum, Specialist Data, Navigator Vega, Designer Digital | crew: Director Williams, Producer Davis
+- Clinging Barnacle (1992, movie) [tt1001372] | drama, comedy, sci-fi | rating 7.6 | A powerful and moving story, Clinging Barnacle explores the depths of human emotion and the resilien
+  cast: Mary Rose, Peter Snow, William Hope, Grace Fire, Michael Peace | crew: Director Williams, Producer Taylor
+- Sixty Ninth Century (1971, movie) [tt1001373] | drama | rating 6.5 | A powerful and moving story, Sixty Ninth Century explores the depths of human emotion and the resili
+  cast: Mary Rose, Helen Moon, Grace Fire, Margaret Faith, Michael Peace | crew: Director Williams, Producer Davis
+- Drifting Jellyfish (2022, movie) [tt1001374] | family, action | rating 8.4 | A heartwarming tale for the whole family, Drifting Jellyfish celebrates the bonds that hold us toget
+  cast: Farmer Bill, Aunt Mary, Student Amy, Coach Mike, Shopkeeper Ann | crew: Director Smith, Producer Taylor
+- Plasma Gasification (2001, movie) [tt1001375] | sci-fi, animation | rating 6.3 | In the distant reaches of space, Plasma Gasification explores humanity's place in the cosmos. When f
+  cast: Commander Zara, Developer Virtual, Analyst Logic, Scientist Luna, Pilot Stellar | crew: Director Johnson, Producer Taylor
+- Clinging Oyster (1987, movie) [tt1001376] | action, family, animation | rating 7.6 | When the world faces an unprecedented threat, Clinging Oyster brings together an unlikely group of h
+  cast: Max Thunder, Storm Shadow, Shark Bite, Raven Black, Rex Hunter | crew: Director Johnson, Producer Wilson
+- Seventieth Century (2007, movie) [tt1001377] | family, animation, sci-fi | rating 7.7 | A heartwarming tale for the whole family, Seventieth Century celebrates the bonds that hold us toget
+  cast: Niece Sue, Shopkeeper Ann, Mom Johnson, Grandma Wilson, Cousin Lucy | crew: Director Smith, Producer Miller
+- Squirting Squid (1985, movie) [tt1001378] | family, animation, action | rating 9.0 | A heartwarming tale for the whole family, Squirting Squid celebrates the bonds that hold us together
+  cast: Sister Emma, Nurse Jenny, Nephew Tim, Uncle Bob, Baker Tom | crew: Director Johnson, Producer Taylor
+- Pyrolysis Technology (1975, movie) [tt1001379] | comedy | rating 8.9 | Life takes an unexpected turn in Pyrolysis Technology, a hilarious comedy that proves laughter truly
+  cast: Ricky Ridiculous, Joey Jester, Sammy Silly, Barney Bizarre, Kenny Kidder | crew: Director Williams, Producer Wilson
+- Seventy First Century (1966, movie) [tt1001381] | animation, comedy | rating 6.5 | Enter the enchanting world of Seventy First Century, where imagination comes to life in spectacular 
+  cast: Studio Sam, Gallery Gail, Design Dave, Sketchy Pete, Picture Pete | crew: Director Johnson, Producer Moore
+- Floating Starfish (1988, movie) [tt1001382] | animation, drama | rating 8.9 | Enter the enchanting world of Floating Starfish, where imagination comes to life in spectacular anim
+  cast: Easel Eddie, Studio Sam, Colorful Cole, Painter Paul, Museum Max | crew: Director Johnson, Producer Davis
+- Torrefaction Process (2015, movie) [tt1001383] | family, sci-fi | rating 8.2 | A heartwarming tale for the whole family, Torrefaction Process celebrates the bonds that hold us tog
+  cast: Brother Jake, Doctor Lisa, Grandpa Brown, Mailman Pete, Farmer Bill | crew: Director Johnson, Producer Davis
+- Quantum Physics 7 (1985, movie) [tt1001384] | sci-fi, animation, action | rating 7.0 | In the distant reaches of space, Quantum Physics 7 explores humanity's place in the cosmos. When fir
+  cast: Explorer Orion, Builder Robotic, Operator Code, Scientist Luna, Technician Binary | crew: Director Jones, Producer Wilson
+- Seventy Second Century (1979, movie) [tt1001385] | drama, comedy | rating 6.5 | A powerful and moving story, Seventy Second Century explores the depths of human emotion and the res
+  cast: Margaret Faith, Rebecca Dawn, William Hope, Martha Rain, James River | crew: Director Smith, Producer Moore
+- Crawling Urchin (2008, movie) [tt1001386] | comedy | rating 8.6 | Life takes an unexpected turn in Crawling Urchin, a hilarious comedy that proves laughter truly is t
+  cast: Benny Laughs, Charlie Chuckle, Quincy Quirky, Izzy Amusing, Ziggy Zany | crew: Director Smith, Producer Davis
+- Syngas Production (2015, movie) [tt1001387] | animation | rating 8.7 | Enter the enchanting world of Syngas Production, where imagination comes to life in spectacular anim
+  cast: Buddy Cartoon, Artistic Amy, Gallery Gail, Visual Vince, Graphic Grace | crew: Director Johnson, Producer Wilson
+- Seventy Third Century (2008, movie) [tt1001389] | animation, family | rating 7.9 | Enter the enchanting world of Seventy Third Century, where imagination comes to life in spectacular 
+  cast: Marker Mike, Crayon Kate, Sketchy Pete, Buddy Cartoon, Artistic Amy | crew: Director Brown, Producer Davis
+- Drifting Seahorse (2010, movie) [tt1001390] | animation, action, drama | rating 8.0 | The beautifully animated Drifting Seahorse brings to life a world where anything is possible and eve
+  cast: Sketchy Pete, Colorful Cole, Museum Max, Artistic Amy, Easel Eddie | crew: Director Williams, Producer Moore
+- Anaerobic Digestion (2025, movie) [tt1001391] | comedy | rating 9.4 | Life takes an unexpected turn in Anaerobic Digestion, a hilarious comedy that proves laughter truly 
+  cast: Ollie Outrageous, Gary Gags, Danny Giggles, Eddie Jokes, Joey Jester | crew: Director Brown, Producer Miller
+- Floating Anemone (1967, movie) [tt1001392] | animation, action | rating 8.7 | The beautifully animated Floating Anemone brings to life a world where anything is possible and ever
+  cast: Frame Frank, Image Ida, Artistic Amy, Studio Sam, Artie Brush | crew: Director Williams, Producer Moore
+- Seventy Fourth Century (1968, movie) [tt1001393] | comedy | rating 9.1 | In the uproarious comedy Seventy Fourth Century, ordinary life becomes extraordinarily funny when ev
+  cast: Larry Laugher, Gary Gags, Ollie Outrageous, Izzy Amusing, Freddy Fun | crew: Director Jones, Producer Wilson
+- Gliding Manta (1983, movie) [tt1001394] | animation, family | rating 9.4 | Enter the enchanting world of Gliding Manta, where imagination comes to life in spectacular animated
+  cast: Painter Paul, Colorful Cole, Buddy Cartoon, Design Dave, Picture Pete | crew: Director Johnson, Producer Wilson
+- Hydrothermal Carbonization (2012, movie) [tt1001395] | sci-fi | rating 7.6 | In the distant reaches of space, Hydrothermal Carbonization explores humanity's place in the cosmos.
+  cast: Dr. Quantum, Creator Synthetic, Builder Robotic, Operator Code, Agent Matrix | crew: Director Jones, Producer Moore
+- Clinging Clam (1967, movie) [tt1001396] | action | rating 7.3 | When the world faces an unprecedented threat, Clinging Clam brings together an unlikely group of her
+  cast: Snake Quick, Tiger Claw, Bull Tough, Eagle Sharp, Hawk Eye | crew: Director Brown, Producer Moore
+- Seventy Fifth Century (1981, movie) [tt1001397] | comedy, drama, action | rating 9.2 | In the uproarious comedy Seventy Fifth Century, ordinary life becomes extraordinarily funny when eve
+  cast: Joey Jester, Ricky Ridiculous, Eddie Jokes, Tommy Tickles, Barney Bizarre | crew: Director Smith, Producer Taylor
+- Gliding Stingray (1975, movie) [tt1001398] | action | rating 7.7 | When the world faces an unprecedented threat, Gliding Stingray brings together an unlikely group of 
+  cast: Bear Strong, Lion Heart, Scorpion Sting, Cole Strike, Shark Bite | crew: Director Smith, Producer Taylor
+- Fermentation Technology (2019, movie) [tt1001399] | action | rating 9.4 | When the world faces an unprecedented threat, Fermentation Technology brings together an unlikely gr
+  cast: Bull Tough, Max Thunder, Jake Steel, Shark Bite, Blade Runner | crew: Director Johnson, Producer Davis
+- Floating Coral (2021, movie) [tt1001400] | comedy, sci-fi, family | rating 9.4 | Life takes an unexpected turn in Floating Coral, a hilarious comedy that proves laughter truly is th
+  cast: Danny Giggles, Pete Prankster, Wally Wacky, Ziggy Zany, Ricky Ridiculous | crew: Director Jones, Producer Wilson
+- Seventy Sixth Century (1989, movie) [tt1001401] | drama | rating 8.2 | A powerful and moving story, Seventy Sixth Century explores the depths of human emotion and the resi
+  cast: Elizabeth Grace, Grace Fire, Helen Moon, Martha Rain, Sarah Joy | crew: Director Williams, Producer Miller
+- Combat Zone (1987, movie) [tt1001402] | action | rating 6.9 | When the world faces an unprecedented threat, Combat Zone brings together an unlikely group of heroe
+  cast: Panther Swift, Phoenix Dark, Tiger Claw, Fox Clever, Cole Strike | crew: Director Williams, Producer Taylor
+- Transesterification Process (1974, movie) [tt1001403] | family, animation | rating 8.5 | A heartwarming tale for the whole family, Transesterification Process celebrates the bonds that hold
+  cast: Mom Johnson, Niece Sue, Mailman Pete, Neighbor Joe, Farmer Bill | crew: Director Johnson, Producer Wilson
+- Clinging Scallop (1963, movie) [tt1001404] | comedy, animation, drama | rating 6.5 | In the uproarious comedy Clinging Scallop, ordinary life becomes extraordinarily funny when everythi
+  cast: Harry Hilarious, Wally Wacky, Mickey Mirth, Charlie Chuckle, Nicky Nutty | crew: Director Williams, Producer Moore
+- Seventy Seventh Century (2017, movie) [tt1001405] | drama, action, animation | rating 6.8 | A powerful and moving story, Seventy Seventh Century explores the depths of human emotion and the re
+  cast: Margaret Faith, John Earth, David Light, Grace Fire, Mary Rose | crew: Director Smith, Producer Moore
+- Esterification Process (2010, movie) [tt1001407] | drama, family | rating 8.3 | A powerful and moving story, Esterification Process explores the depths of human emotion and the res
+  cast: Robert Hill, Michael Peace, Thomas Truth, Elizabeth Grace, Martha Rain | crew: Director Johnson, Producer Moore
+- Floating Sponge (1977, movie) [tt1001408] | action, family, drama | rating 6.8 | When the world faces an unprecedented threat, Floating Sponge brings together an unlikely group of h
+  cast: Fox Clever, Phoenix Dark, Rex Hunter, Cole Strike, Hawk Eye | crew: Director Smith, Producer Taylor
+- Crimson Blade (1987, movie) [tt1001410] | action, sci-fi, comedy | rating 6.0 | When the world faces an unprecedented threat, Crimson Blade brings together an unlikely group of her
+  cast: Raven Black, Hawk Eye, Bull Tough, Blade Runner, Phoenix Dark | crew: Director Brown, Producer Miller
+- Algae Cultivation (2016, movie) [tt1001411] | drama, comedy, sci-fi | rating 7.9 | A powerful and moving story, Algae Cultivation explores the depths of human emotion and the resilien
+  cast: Sarah Joy, Thomas Truth, Peter Snow, Mary Rose, Margaret Faith | crew: Director Smith, Producer Wilson
+- Clinging Abalone (1984, movie) [tt1001412] | animation, comedy | rating 7.3 | Enter the enchanting world of Clinging Abalone, where imagination comes to life in spectacular anima
+  cast: Graphic Grace, Artie Brush, Image Ida, Gallery Gail, Canvas Carl | crew: Director Smith, Producer Miller
+- Seventy Ninth Century (1989, movie) [tt1001413] | sci-fi, comedy, family | rating 8.8 | In the distant reaches of space, Seventy Ninth Century explores humanity's place in the cosmos. When
+  cast: Commander Zara, Discoverer Atomic, Founder Molecular, Designer Digital, Technician Binary | crew: Director Brown, Producer Miller
+- Drifting Plankton (1982, movie) [tt1001414] | family, drama, action | rating 6.9 | A heartwarming tale for the whole family, Drifting Plankton celebrates the bonds that hold us togeth
+  cast: Niece Sue, Aunt Mary, Teacher Miss Davis, Cousin Lucy, Librarian Kate | crew: Director Jones, Producer Moore
+- Lipid Extraction (1974, movie) [tt1001415] | family, sci-fi | rating 6.2 | A heartwarming tale for the whole family, Lipid Extraction celebrates the bonds that hold us togethe
+  cast: Sister Emma, Farmer Bill, Dad Smith, Brother Jake, Librarian Kate | crew: Director Jones, Producer Moore
+- Charming 5 (2010, movie) [tt1001416] | comedy, sci-fi | rating 7.4 | Life takes an unexpected turn in Charming 5, a hilarious comedy that proves laughter truly is the be
+  cast: Vinny Witty, Ziggy Zany, Benny Laughs, Joey Jester, Sammy Silly | crew: Director Johnson, Producer Moore
+- Eightieth Century (1987, movie) [tt1001417] | comedy, sci-fi | rating 7.2 | Life takes an unexpected turn in Eightieth Century, a hilarious comedy that proves laughter truly is
+  cast: Wally Wacky, Harry Hilarious, Danny Giggles, Charlie Chuckle, Nicky Nutty | crew: Director Williams, Producer Miller
+- Floating Krill (2019, movie) [tt1001418] | action | rating 8.2 | When the world faces an unprecedented threat, Floating Krill brings together an unlikely group of he
+  cast: Jake Steel, Spider Web, Snake Quick, Panther Swift, Falcon Fast | crew: Director Smith, Producer Davis
+- Photobioreactor Systems (1963, movie) [tt1001419] | animation | rating 8.4 | Enter the enchanting world of Photobioreactor Systems, where imagination comes to life in spectacula
+  cast: Image Ida, Artistic Amy, Crayon Kate, Buddy Cartoon, Sketchy Pete | crew: Director Williams, Producer Miller
+- Clinging Limpet (2023, movie) [tt1001420] | animation | rating 9.2 | The beautifully animated Clinging Limpet brings to life a world where anything is possible and every
+  cast: Creative Chris, Sketchy Pete, Easel Eddie, Doodle Dan, Palette Pat | crew: Director Brown, Producer Wilson
+- Eighty First Century (2005, movie) [tt1001421] | drama | rating 6.2 | A powerful and moving story, Eighty First Century explores the depths of human emotion and the resil
+  cast: William Hope, Elizabeth Grace, Martha Rain, Margaret Faith, Catherine Love | crew: Director Jones, Producer Davis
+- Microalgae Harvesting (2025, movie) [tt1001423] | comedy, animation, family | rating 9.3 | Life takes an unexpected turn in Microalgae Harvesting, a hilarious comedy that proves laughter trul
+  cast: Benny Laughs, Sammy Silly, Pete Prankster, Ziggy Zany, Harry Hilarious | crew: Director Smith, Producer Wilson
+- Eighty Second Century (1975, movie) [tt1001425] | comedy, drama, animation | rating 8.4 | In the uproarious comedy Eighty Second Century, ordinary life becomes extraordinarily funny when eve
+  cast: Pete Prankster, Vinny Witty, Ziggy Zany, Quincy Quirky, Freddy Fun | crew: Director Jones, Producer Miller
+- Slithering Eel (1973, movie) [tt1001426] | family | rating 9.0 | A heartwarming tale for the whole family, Slithering Eel celebrates the bonds that hold us together 
+  cast: Shopkeeper Ann, Doctor Lisa, Uncle Bob, Grandma Wilson, Baker Tom | crew: Director Williams, Producer Taylor
+- Algal Biofuel (1977, movie) [tt1001427] | action, comedy, animation | rating 8.5 | When the world faces an unprecedented threat, Algal Biofuel brings together an unlikely group of her
+  cast: Bear Strong, Blade Runner, Fox Clever, Jake Steel, Panther Swift | crew: Director Brown, Producer Wilson
+- Gliding Shark (1960, movie) [tt1001428] | sci-fi, animation | rating 6.7 | In the distant reaches of space, Gliding Shark explores humanity's place in the cosmos. When first c
+  cast: Professor Cosmos, Pioneer Genetic, Navigator Vega, Developer Virtual, Inventor Cyborg | crew: Director Johnson, Producer Miller
+- Eighty Third Century (1969, movie) [tt1001429] | action | rating 6.5 | When the world faces an unprecedented threat, Eighty Third Century brings together an unlikely group
+  cast: Wolf Grey, Eagle Sharp, Hawk Eye, Spider Web, Viper Deadly | crew: Director Smith, Producer Wilson
+- Swimming Tuna (1980, movie) [tt1001430] | drama | rating 6.9 | A powerful and moving story, Swimming Tuna explores the depths of human emotion and the resilience o
+  cast: David Light, Hope Ocean, John Earth, Grace Fire, Robert Hill | crew: Director Smith, Producer Miller
+- Cellulosic Ethanol (2016, movie) [tt1001431] | drama, comedy, action | rating 6.2 | A powerful and moving story, Cellulosic Ethanol explores the depths of human emotion and the resilie
+  cast: Sarah Joy, Rebecca Dawn, Elizabeth Grace, James River, Peter Snow | crew: Director Johnson, Producer Taylor
+- Floating Salmon (2005, movie) [tt1001432] | action | rating 6.6 | When the world faces an unprecedented threat, Floating Salmon brings together an unlikely group of h
+  cast: Wolf Grey, Jake Steel, Lion Heart, Hawk Eye, Bull Tough | crew: Director Brown, Producer Davis
+- Eighty Fourth Century (1971, movie) [tt1001433] | family, action, animation | rating 7.7 | A heartwarming tale for the whole family, Eighty Fourth Century celebrates the bonds that hold us to
+  cast: Baker Tom, Principal Mr. Green, Nephew Tim, Neighbor Joe, Niece Sue | crew: Director Williams, Producer Davis
+- Darting Trout (1965, movie) [tt1001434] | action, comedy, animation | rating 9.2 | When the world faces an unprecedented threat, Darting Trout brings together an unlikely group of her
+  cast: Bear Strong, Tiger Claw, Fox Clever, Eagle Sharp, Spider Web | crew: Director Jones, Producer Moore
+- Lignocellulosic Biomass (1998, movie) [tt1001435] | drama, action, family | rating 9.2 | A powerful and moving story, Lignocellulosic Biomass explores the depths of human emotion and the re
+  cast: Anna Stone, Faith Sky, James River, William Hope, Martha Rain | crew: Director Williams, Producer Miller
+- Swimming Cod (2008, movie) [tt1001438] | animation | rating 7.4 | Enter the enchanting world of Swimming Cod, where imagination comes to life in spectacular animated 
+  cast: Artistic Amy, Design Dave, Studio Sam, Buddy Cartoon, Visual Vince | crew: Director Johnson, Producer Wilson
+- Enzymatic Hydrolysis (1985, movie) [tt1001439] | animation | rating 9.1 | The beautifully animated Enzymatic Hydrolysis brings to life a world where anything is possible and 
+  cast: Sketchy Pete, Museum Max, Bright Betty, Artie Brush, Creative Chris | crew: Director Smith, Producer Taylor
+- Floating Mackerel (2015, movie) [tt1001440] | family, action, comedy | rating 9.3 | A heartwarming tale for the whole family, Floating Mackerel celebrates the bonds that hold us togeth
+  cast: Neighbor Joe, Uncle Bob, Sister Emma, Brother Jake, Mailman Pete | crew: Director Smith, Producer Moore
+- Darting Herring (1981, movie) [tt1001442] | family, comedy, action | rating 8.3 | A heartwarming tale for the whole family, Darting Herring celebrates the bonds that hold us together
+  cast: Librarian Kate, Farmer Bill, Brother Jake, Friend Alex, Nurse Jenny | crew: Director Brown, Producer Wilson
+- Acid Hydrolysis (2024, movie) [tt1001443] | comedy, sci-fi | rating 8.9 | Life takes an unexpected turn in Acid Hydrolysis, a hilarious comedy that proves laughter truly is t
+  cast: Joey Jester, Kenny Kidder, Ricky Ridiculous, Artie Absurd, Danny Giggles | crew: Director Jones, Producer Davis
+- Punchline 9 (1993, movie) [tt1001445] | comedy, family, drama | rating 8.7 | Life takes an unexpected turn in Punchline 9, a hilarious comedy that proves laughter truly is the b
+  cast: Ollie Outrageous, Izzy Amusing, Artie Absurd, Tommy Tickles, Nicky Nutty | crew: Director Johnson, Producer Moore
+- Swimming Anchovy (2004, movie) [tt1001446] | drama, sci-fi, action | rating 6.2 | A powerful and moving story, Swimming Anchovy explores the depths of human emotion and the resilienc
+  cast: Catherine Love, Paul Wind, Peter Snow, David Light, Mary Rose | crew: Director Smith, Producer Taylor
+- Steam Explosion (2023, movie) [tt1001447] | animation | rating 6.3 | Enter the enchanting world of Steam Explosion, where imagination comes to life in spectacular animat
+  cast: Bright Betty, Picture Pete, Artie Brush, Marker Mike, Design Dave | crew: Director Jones, Producer Davis
+- Floating Halibut (2019, movie) [tt1001448] | sci-fi | rating 6.5 | In the distant reaches of space, Floating Halibut explores humanity's place in the cosmos. When firs
+  cast: Pioneer Genetic, Dr. Quantum, Commander Zara, Developer Virtual, Explorer Orion | crew: Director Williams, Producer Moore
+- Eighty Eighth Century (2007, movie) [tt1001449] | action, animation, family | rating 6.4 | When the world faces an unprecedented threat, Eighty Eighth Century brings together an unlikely grou
+  cast: Rex Hunter, Phoenix Dark, Storm Shadow, Viper Deadly, Hawk Eye | crew: Director Williams, Producer Moore
+- Darting Flounder (2020, movie) [tt1001450] | comedy | rating 8.4 | Life takes an unexpected turn in Darting Flounder, a hilarious comedy that proves laughter truly is 
+  cast: Quincy Quirky, Gary Gags, Izzy Amusing, Freddy Fun, Charlie Chuckle | crew: Director Smith, Producer Moore
+- Ammonia Fiber (1989, movie) [tt1001451] | drama | rating 8.2 | A powerful and moving story, Ammonia Fiber explores the depths of human emotion and the resilience o
+  cast: Helen Moon, John Earth, Jonathan Day, Anna Stone, David Light | crew: Director Jones, Producer Moore
+- Gliding Sole (1989, movie) [tt1001452] | action, family | rating 8.5 | When the world faces an unprecedented threat, Gliding Sole brings together an unlikely group of hero
+  cast: Shark Bite, Tiger Claw, Bull Tough, Fox Clever, Wolf Grey | crew: Director Johnson, Producer Wilson
+- Eighty Ninth Century (1987, movie) [tt1001453] | comedy, animation | rating 7.6 | Life takes an unexpected turn in Eighty Ninth Century, a hilarious comedy that proves laughter truly
+  cast: Freddy Fun, Wally Wacky, Barney Bizarre, Kenny Kidder, Ziggy Zany | crew: Director Williams, Producer Wilson
+- Swimming Haddock (1979, movie) [tt1001454] | family | rating 8.9 | A heartwarming tale for the whole family, Swimming Haddock celebrates the bonds that hold us togethe
+  cast: Nephew Tim, Librarian Kate, Cousin Lucy, Niece Sue, Brother Jake | crew: Director Jones, Producer Moore
+- Floating Pollock (2010, movie) [tt1001456] | comedy, action, animation | rating 8.7 | In the uproarious comedy Floating Pollock, ordinary life becomes extraordinarily funny when everythi
+  cast: Freddy Fun, Eddie Jokes, Ollie Outrageous, Barney Bizarre, Sammy Silly | crew: Director Williams, Producer Taylor
+- Ninetieth Century (2009, movie) [tt1001457] | drama, animation | rating 7.1 | A powerful and moving story, Ninetieth Century explores the depths of human emotion and the resilien
+  cast: Thomas Truth, Michael Peace, Charles Sun, Sarah Joy, Ruth Star | crew: Director Johnson, Producer Davis
+- Organosolv Process (1960, movie) [tt1001459] | drama | rating 7.4 | A powerful and moving story, Organosolv Process explores the depths of human emotion and the resilie
+  cast: Thomas Truth, Helen Moon, Elizabeth Grace, Martha Rain, Catherine Love | crew: Director Johnson, Producer Davis
+- Gliding Plaice (2000, movie) [tt1001460] | action, animation | rating 6.9 | When the world faces an unprecedented threat, Gliding Plaice brings together an unlikely group of he
+  cast: Cole Strike, Falcon Fast, Panther Swift, Lion Heart, Eagle Sharp | crew: Director Brown, Producer Taylor
+- Ninety First Century (1961, movie) [tt1001461] | action, animation, comedy | rating 7.4 | When the world faces an unprecedented threat, Ninety First Century brings together an unlikely group
+  cast: Tiger Claw, Jake Steel, Blade Runner, Bull Tough, Wolf Grey | crew: Director Williams, Producer Wilson
+- Swimming Turbot (2006, movie) [tt1001462] | action | rating 8.4 | When the world faces an unprecedented threat, Swimming Turbot brings together an unlikely group of h
+  cast: Falcon Fast, Snake Quick, Blade Runner, Shark Bite, Fox Clever | crew: Director Jones, Producer Davis
+- Ninety Second Century (1987, movie) [tt1001465] | family, comedy | rating 7.8 | A heartwarming tale for the whole family, Ninety Second Century celebrates the bonds that hold us to
+  cast: Sister Emma, Principal Mr. Green, Shopkeeper Ann, Librarian Kate, Dad Smith | crew: Director Williams, Producer Moore
+- Darting Snapper (1999, movie) [tt1001466] | family, animation, sci-fi | rating 8.8 | A heartwarming tale for the whole family, Darting Snapper celebrates the bonds that hold us together
+  cast: Neighbor Joe, Friend Alex, Student Amy, Cousin Lucy, Principal Mr. Green | crew: Director Brown, Producer Moore
+- Ninety Third Century (2013, movie) [tt1001469] | drama, comedy, family | rating 6.4 | A powerful and moving story, Ninety Third Century explores the depths of human emotion and the resil
+  cast: Mary Rose, Sarah Joy, Rebecca Dawn, Charles Sun, Catherine Love | crew: Director Smith, Producer Miller
+- Swimming Mahi (2014, movie) [tt1001470] | comedy, family | rating 7.3 | Life takes an unexpected turn in Swimming Mahi, a hilarious comedy that proves laughter truly is the
+  cast: Wally Wacky, Eddie Jokes, Nicky Nutty, Benny Laughs, Charlie Chuckle | crew: Director Johnson, Producer Wilson
+- Floating Swordfish (2025, movie) [tt1001472] | comedy | rating 6.7 | In the uproarious comedy Floating Swordfish, ordinary life becomes extraordinarily funny when everyt
+  cast: Eddie Jokes, Joey Jester, Charlie Chuckle, Barney Bizarre, Ollie Outrageous | crew: Director Smith, Producer Wilson
+- Ninety Fourth Century (1983, movie) [tt1001473] | comedy, sci-fi, drama | rating 7.1 | In the uproarious comedy Ninety Fourth Century, ordinary life becomes extraordinarily funny when eve
+  cast: Mickey Mirth, Vinny Witty, Izzy Amusing, Wally Wacky, Benny Laughs | crew: Director Williams, Producer Miller
+- Anthraquinone Process (1968, movie) [tt1001475] | family, action | rating 8.5 | A heartwarming tale for the whole family, Anthraquinone Process celebrates the bonds that hold us to
+  cast: Shopkeeper Ann, Principal Mr. Green, Uncle Bob, Aunt Mary, Student Amy | crew: Director Smith, Producer Taylor
+- Gliding Sailfish (1988, movie) [tt1001476] | action, family, sci-fi | rating 8.4 | When the world faces an unprecedented threat, Gliding Sailfish brings together an unlikely group of 
+  cast: Rex Hunter, Max Thunder, Lion Heart, Scorpion Sting, Eagle Sharp | crew: Director Williams, Producer Wilson
+- Ninety Fifth Century (1978, movie) [tt1001477] | action | rating 9.4 | When the world faces an unprecedented threat, Ninety Fifth Century brings together an unlikely group
+  cast: Bear Strong, Tiger Claw, Panther Swift, Shark Bite, Jake Steel | crew: Director Smith, Producer Moore
+- Swimming Wahoo (2019, movie) [tt1001478] | drama | rating 6.9 | A powerful and moving story, Swimming Wahoo explores the depths of human emotion and the resilience 
+  cast: David Light, John Earth, Sarah Joy, Jonathan Day, Peter Snow | crew: Director Smith, Producer Miller
+- Chlorine Dioxide (2000, movie) [tt1001479] | drama, comedy, animation | rating 6.3 | A powerful and moving story, Chlorine Dioxide explores the depths of human emotion and the resilienc
+  cast: Hope Ocean, Elizabeth Grace, Catherine Love, Michael Peace, Peter Snow | crew: Director Williams, Producer Miller
+- Floating Kingfish (1972, movie) [tt1001480] | family, drama | rating 8.5 | A heartwarming tale for the whole family, Floating Kingfish celebrates the bonds that hold us togeth
+  cast: Niece Sue, Baker Tom, Shopkeeper Ann, Brother Jake, Nurse Jenny | crew: Director Johnson, Producer Taylor
+- Ninety Seventh Century (1963, movie) [tt1001485] | animation | rating 7.3 | Enter the enchanting world of Ninety Seventh Century, where imagination comes to life in spectacular
+  cast: Painter Paul, Easel Eddie, Crayon Kate, Palette Pat, Creative Chris | crew: Director Johnson, Producer Moore
+- Funny Farm (1961, movie) [tt1001487] | comedy | rating 7.6 | Life takes an unexpected turn in Funny Farm, a hilarious comedy that proves laughter truly is the be
+  cast: Freddy Fun, Joey Jester, Quincy Quirky, Charlie Chuckle, Barney Bizarre | crew: Director Johnson, Producer Taylor
+- Star Wars (2010, movie) [tt1001488] | sci-fi | rating 8.3 | In the distant reaches of space, Star Wars explores humanity's place in the cosmos. When first conta
+  cast: Researcher Neural, Creator Synthetic, Operator Code, Developer Virtual, Captain Nova | crew: Director Johnson, Producer Wilson
+- Lost Hope 5 (1960, movie) [tt1001491] | drama, comedy, action | rating 8.1 | In the compelling drama Lost Hope 5, ordinary people face extraordinary circumstances that test the 
+  cast: Robert Hill, David Light, Charles Sun, Faith Sky, James River | crew: Director Jones, Producer Miller
+- Tenth Hour 4 (2013, movie) [tt1001493] | drama | rating 6.5 | A powerful and moving story, Tenth Hour 4 explores the depths of human emotion and the resilience of
+  cast: Elizabeth Grace, Sarah Joy, Anna Stone, Robert Hill, John Earth | crew: Director Brown, Producer Wilson
+- Wits End (2010, movie) [tt1001494] | comedy | rating 6.6 | In the uproarious comedy Wits End, ordinary life becomes extraordinarily funny when everything that 
+  cast: Vinny Witty, Charlie Chuckle, Quincy Quirky, Pete Prankster, Eddie Jokes | crew: Director Smith, Producer Moore
+- Memory Bank 8 (2019, movie) [tt1001496] | sci-fi | rating 7.9 | In the distant reaches of space, Memory Bank 8 explores humanity's place in the cosmos. When first c
+  cast: Navigator Vega, Agent Matrix, Pilot Stellar, Analyst Logic, Creator Synthetic | crew: Director Smith, Producer Davis
+- Final Destination 5 (1973, movie) [tt1001497] | drama, sci-fi, family | rating 7.8 | A powerful and moving story, Final Destination 5 explores the depths of human emotion and the resili
+  cast: Jonathan Day, Faith Sky, Anna Stone, Rebecca Dawn, Charles Sun | crew: Director Smith, Producer Miller
+- Screeching Monkey 5 (1972, movie) [tt1001499] | animation | rating 7.6 | The beautifully animated Screeching Monkey 5 brings to life a world where anything is possible and e
+  cast: Creative Chris, Picture Pete, Palette Pat, Doodle Dan, Colorful Cole | crew: Director Williams, Producer Davis
+- Thanksgiving Feast 9 (1965, movie) [tt1001500] | family, drama, sci-fi | rating 7.8 | A heartwarming tale for the whole family, Thanksgiving Feast 9 celebrates the bonds that hold us tog
+  cast: Principal Mr. Green, Librarian Kate, Nephew Tim, Grandma Wilson, Shopkeeper Ann | crew: Director Johnson, Producer Miller

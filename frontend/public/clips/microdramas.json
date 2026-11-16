@@ -1,0 +1,108 @@
+{
+  "clips": [
+    {
+      "id": "md-neon-runner",
+      "title": "Neon Runner",
+      "source": "streamAI Originals",
+      "kind": "microdrama",
+      "video": { "type": "file", "src": "microdramas/neon-runner.mp4" },
+      "likes": "22.1K",
+      "duration": "0:30",
+      "tag": "AI-generated",
+      "genres": ["Sci-Fi", "Action", "Cyberpunk"],
+      "hueA": 285,
+      "hueB": 200
+    },
+    {
+      "id": "md-long-way-to-gold",
+      "title": "Long Way to Gold",
+      "source": "streamAI Originals",
+      "kind": "microdrama",
+      "video": { "type": "file", "src": "microdramas/long-way-to-gold.mp4" },
+      "likes": "14.8K",
+      "duration": "0:30",
+      "tag": "AI-generated",
+      "genres": ["Sci-Fi", "Adventure"],
+      "hueA": 220,
+      "hueB": 275
+    },
+    {
+      "id": "md-the-last-candle",
+      "title": "The Last Candle",
+      "source": "streamAI Originals",
+      "kind": "microdrama",
+      "video": { "type": "file", "src": "microdramas/the-last-candle.mp4" },
+      "likes": "9.6K",
+      "duration": "0:30",
+      "tag": "AI-generated",
+      "genres": ["Fantasy", "Mystery"],
+      "hueA": 35,
+      "hueB": 300
+    },
+    {
+      "id": "md-dust-and-devotion",
+      "title": "Dust & Devotion",
+      "source": "streamAI Originals",
+      "kind": "microdrama",
+      "video": { "type": "file", "src": "microdramas/dust-and-devotion.mp4" },
+      "likes": "11.3K",
+      "duration": "0:30",
+      "tag": "AI-generated",
+      "genres": ["Western", "Drama", "Romance"],
+      "hueA": 25,
+      "hueB": 15
+    },
+    {
+      "id": "md-the-silent-call",
+      "title": "The Silent Call",
+      "source": "streamAI Originals",
+      "kind": "microdrama",
+      "video": { "type": "file", "src": "microdramas/the-silent-call.mp4" },
+      "likes": "18.4K",
+      "duration": "0:30",
+      "tag": "AI-generated",
+      "genres": ["Drama"],
+      "hueA": 210,
+      "hueB": 250
+    },
+    {
+      "id": "md-one-bar",
+      "title": "One Bar",
+      "source": "streamAI Originals",
+      "kind": "microdrama",
+      "video": { "type": "file", "src": "microdramas/one-bar.mp4" },
+      "likes": "7.2K",
+      "duration": "0:30",
+      "tag": "AI-generated",
+      "genres": ["Comedy", "Slice of Life"],
+      "hueA": 90,
+      "hueB": 150
+    },
+    {
+      "id": "md-the-last-floor",
+      "title": "The Last Floor",
+      "source": "streamAI Originals",
+      "kind": "microdrama",
+      "video": { "type": "file", "src": "microdramas/the-last-floor.mp4" },
+      "likes": "11.3K",
+      "duration": "0:30",
+      "tag": "AI-generated",
+      "genres": ["Thriller", "Action"],
+      "hueA": 0,
+      "hueB": 40
+    },
+    {
+      "id": "md-dragon-soul",
+      "title": "Dragon's Soul",
+      "source": "streamAI Originals",
+      "kind": "microdrama",
+      "video": { "type": "file", "src": "microdramas/dragon-soul.mp4" },
+      "likes": "16.9K",
+      "duration": "0:30",
+      "tag": "AI-generated",
+      "genres": ["Fantasy", "Action", "Adventure"],
+      "hueA": 30,
+      "hueB": 330
+    }
+  ]
+}

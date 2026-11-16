@@ -1,0 +1,35 @@
+{
+  "projection": "medium",
+  "cast_cap": 6,
+  "shard_target_tokens": 28000,
+  "shard_hard_cap": 30000,
+  "shards": [
+    {
+      "shard": "kids_00",
+      "category": "kids",
+      "titles": 147,
+      "tokens": 12759,
+      "csv": "shards/kids_00.csv",
+      "system_txt": "shards/kids_00.system.txt",
+      "status": "OK"
+    },
+    {
+      "shard": "nonkids_movie_00",
+      "category": "movie",
+      "titles": 177,
+      "tokens": 15090,
+      "csv": "shards/nonkids_movie_00.csv",
+      "system_txt": "shards/nonkids_movie_00.system.txt",
+      "status": "OK"
+    },
+    {
+      "shard": "nonkids_movie_01",
+      "category": "movie",
+      "titles": 177,
+      "tokens": 15403,
+      "csv": "shards/nonkids_movie_01.csv",
+      "system_txt": "shards/nonkids_movie_01.system.txt",
+      "status": "OK"
+    }
+  ]
+}

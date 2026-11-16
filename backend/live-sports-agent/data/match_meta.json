@@ -1,0 +1,349 @@
+{
+  "schemaVersion": "1.0",
+  "derivedBy": "backend/live-sports-agent/build_synthetic_match.py",
+  "match": {
+    "match_id": "SYN-MAT-0001",
+    "home_team_name": "Harbor City FC",
+    "away_team_name": "Redcliffe Athletic"
+  },
+  "clock": {
+    "hz": 25,
+    "clip_duration_s": 60.0,
+    "note": "1 video second = 1 match second. video_s = 0 is 32:00 into the second half; everything earlier has negative video_s.",
+    "halves": {
+      "firstHalf": {
+        "first_frame_id": 10000,
+        "last_frame_id": 80500,
+        "frames": 70501,
+        "first_timestamp_utc": "2026-05-16T15:00:00.000000+00:00",
+        "last_timestamp_utc": "2026-05-16T15:47:00.000000+00:00",
+        "anchor_video_s": -5700.0
+      },
+      "secondHalf": {
+        "first_frame_id": 100000,
+        "last_frame_id": 173500,
+        "frames": 73501,
+        "first_timestamp_utc": "2026-05-16T16:03:00.000000+00:00",
+        "last_timestamp_utc": "2026-05-16T16:52:00.000000+00:00",
+        "anchor_video_s": -1920.0
+      }
+    }
+  },
+  "clubs": {
+    "SYN-CLU-HCF": {
+      "side": "home",
+      "team_name": "Harbor City FC",
+      "kit": "blue shirts, blue shorts"
+    },
+    "SYN-CLU-RCA": {
+      "side": "away",
+      "team_name": "Redcliffe Athletic",
+      "kit": "white shirts with red numbers; goalkeeper in green"
+    }
+  },
+  "goals": [
+    {
+      "frame_id": 43780,
+      "game_section": "firstHalf",
+      "timestamp_utc": "2026-05-16T15:22:31.200000+00:00",
+      "video_s": -4348.8,
+      "scored_by_club": "SYN-CLU-RCA"
+    },
+    {
+      "frame_id": 123100,
+      "game_section": "secondHalf",
+      "timestamp_utc": "2026-05-16T16:18:24.000000+00:00",
+      "video_s": -996.0,
+      "scored_by_club": "SYN-CLU-HCF"
+    },
+    {
+      "frame_id": 148646,
+      "game_section": "secondHalf",
+      "timestamp_utc": "2026-05-16T16:35:25.840000+00:00",
+      "video_s": 25.84,
+      "scored_by_club": "SYN-CLU-HCF"
+    }
+  ],
+  "players": [
+    {
+      "player_id": "SYN-OBJ-HCF01",
+      "club_id": "SYN-CLU-HCF",
+      "side": "home",
+      "jersey_number": 1,
+      "name": "Ilya Brandvold",
+      "role": "GK",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-HCF02",
+      "club_id": "SYN-CLU-HCF",
+      "side": "home",
+      "jersey_number": 2,
+      "name": "Mateo Quintal",
+      "role": "DF",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-HCF03",
+      "club_id": "SYN-CLU-HCF",
+      "side": "home",
+      "jersey_number": 3,
+      "name": "Haruto Senda",
+      "role": "DF",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-HCF04",
+      "club_id": "SYN-CLU-HCF",
+      "side": "home",
+      "jersey_number": 4,
+      "name": "Desmond Okafor-Hale",
+      "role": "DF",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-HCF05",
+      "club_id": "SYN-CLU-HCF",
+      "side": "home",
+      "jersey_number": 5,
+      "name": "Jonah Vesterberg",
+      "role": "DF",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-HCF06",
+      "club_id": "SYN-CLU-HCF",
+      "side": "home",
+      "jersey_number": 6,
+      "name": "Callum Ashdown",
+      "role": "MF",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-HCF07",
+      "club_id": "SYN-CLU-HCF",
+      "side": "home",
+      "jersey_number": 7,
+      "name": "Tobiah Lark",
+      "role": "FW",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-HCF08",
+      "club_id": "SYN-CLU-HCF",
+      "side": "home",
+      "jersey_number": 8,
+      "name": "Bram Eijsden",
+      "role": "MF",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-HCF09",
+      "club_id": "SYN-CLU-HCF",
+      "side": "home",
+      "jersey_number": 9,
+      "name": "Soren Dahlquist",
+      "role": "FW",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-HCF10",
+      "club_id": "SYN-CLU-HCF",
+      "side": "home",
+      "jersey_number": 10,
+      "name": "Luca Venturelli",
+      "role": "MF",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-HCF11",
+      "club_id": "SYN-CLU-HCF",
+      "side": "home",
+      "jersey_number": 11,
+      "name": "Kofi Asante-Brook",
+      "role": "FW",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-HCF14",
+      "club_id": "SYN-CLU-HCF",
+      "side": "home",
+      "jersey_number": 14,
+      "name": "Amir Rostami-Vale",
+      "role": "MF",
+      "starter": false,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-HCF17",
+      "club_id": "SYN-CLU-HCF",
+      "side": "home",
+      "jersey_number": 17,
+      "name": "Felipe Arandela",
+      "role": "MF",
+      "starter": false,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-HCF20",
+      "club_id": "SYN-CLU-HCF",
+      "side": "home",
+      "jersey_number": 20,
+      "name": "Niall Corrigan",
+      "role": "DF",
+      "starter": false,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-RCA13",
+      "club_id": "SYN-CLU-RCA",
+      "side": "guest",
+      "jersey_number": 13,
+      "name": "Marek Zielonka",
+      "role": "GK",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-RCA02",
+      "club_id": "SYN-CLU-RCA",
+      "side": "guest",
+      "jersey_number": 2,
+      "name": "Hugo Delacroix-Ward",
+      "role": "DF",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-RCA03",
+      "club_id": "SYN-CLU-RCA",
+      "side": "guest",
+      "jersey_number": 3,
+      "name": "Elias Nordvik-Ames",
+      "role": "DF",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-RCA04",
+      "club_id": "SYN-CLU-RCA",
+      "side": "guest",
+      "jersey_number": 4,
+      "name": "Oskar Thalberg",
+      "role": "DF",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-RCA05",
+      "club_id": "SYN-CLU-RCA",
+      "side": "guest",
+      "jersey_number": 5,
+      "name": "Samuel Adeyinka-Rhodes",
+      "role": "DF",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-RCA06",
+      "club_id": "SYN-CLU-RCA",
+      "side": "guest",
+      "jersey_number": 6,
+      "name": "Rafael Monteverde",
+      "role": "MF",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-RCA08",
+      "club_id": "SYN-CLU-RCA",
+      "side": "guest",
+      "jersey_number": 8,
+      "name": "Declan Moorcroft",
+      "role": "MF",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-RCA09",
+      "club_id": "SYN-CLU-RCA",
+      "side": "guest",
+      "jersey_number": 9,
+      "name": "Marlon Ibe-Castro",
+      "role": "FW",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-RCA10",
+      "club_id": "SYN-CLU-RCA",
+      "side": "guest",
+      "jersey_number": 10,
+      "name": "Teodor Vasko",
+      "role": "MF",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-RCA11",
+      "club_id": "SYN-CLU-RCA",
+      "side": "guest",
+      "jersey_number": 11,
+      "name": "Jarrah Whitlock",
+      "role": "FW",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-RCA12",
+      "club_id": "SYN-CLU-RCA",
+      "side": "guest",
+      "jersey_number": 12,
+      "name": "Finn Ostergaard",
+      "role": "MF",
+      "starter": true,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-RCA15",
+      "club_id": "SYN-CLU-RCA",
+      "side": "guest",
+      "jersey_number": 15,
+      "name": "Ruben Szabo-Kent",
+      "role": "MF",
+      "starter": false,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-RCA18",
+      "club_id": "SYN-CLU-RCA",
+      "side": "guest",
+      "jersey_number": 18,
+      "name": "Idris Rahimzadeh",
+      "role": "FW",
+      "starter": false,
+      "face_id": null
+    },
+    {
+      "player_id": "SYN-OBJ-RCA21",
+      "club_id": "SYN-CLU-RCA",
+      "side": "guest",
+      "jersey_number": 21,
+      "name": "Cormac Lyle",
+      "role": "DF",
+      "starter": false,
+      "face_id": null
+    }
+  ]
+}

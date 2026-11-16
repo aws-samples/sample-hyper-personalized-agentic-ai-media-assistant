@@ -1,0 +1,55 @@
+.video-ph {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+/* Dashed frame reads clearly as a stand-in for content. */
+.video-ph-frame {
+  position: absolute;
+  inset: 28px;
+  border: 2px dashed rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+}
+.video-ph-frame .badge-live {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.video-ph-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  padding: 0 24px;
+}
+.video-ph-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--text-hi);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.device-tv .video-ph-icon {
+  width: 92px;
+  height: 92px;
+}
+.video-ph-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--title-md);
+  color: var(--text-hi);
+}
+.video-ph-sub {
+  font-size: var(--small);
+  color: var(--text-lo);
+  letter-spacing: 0.02em;
+}

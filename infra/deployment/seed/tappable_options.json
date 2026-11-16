@@ -1,0 +1,66 @@
+{
+  "_comment": "Pre-generated idle-search starter options (tappable options). Built offline, not per viewer. genres must be catalog genre ids (infra/lambdas/profile_settings/genres.json) that the bundled catalog (data/catalog) actually carries; an option is hidden when one of its genres is a never-show genre. kids=true marks options safe for a kids profile. generic=true options are the cold-start set (3 drawn at random). After editing, run scripts/build_tappable_pool.py to re-embed into infra/layers/shared/python/tappable_pool.json.",
+  "options": [
+    {"text": "A feel-good movie under two hours", "genres": ["comedy"], "generic": true},
+    {"text": "A tense sci-fi adventure", "genres": ["sci-fi"], "generic": true},
+    {"text": "Award-winning dramas", "genres": ["drama"], "generic": true},
+    {"text": "Something funny for tonight", "genres": ["comedy"], "generic": true, "kids": true},
+    {"text": "A classic everyone should see", "genres": [], "generic": true},
+    {"text": "Edge-of-your-seat action", "genres": ["action"], "generic": true},
+    {"text": "A sweeping adventure", "genres": ["action", "family"], "generic": true, "kids": true},
+    {"text": "A heartwarming family film", "genres": ["family"], "generic": true, "kids": true},
+    {"text": "Highly rated hidden gems", "genres": [], "generic": true},
+    {"text": "A romantic comedy", "genres": ["comedy"], "generic": true},
+    {"text": "Animated movies for all ages", "genres": ["animation", "family"], "generic": true, "kids": true},
+    {"text": "A short micro-drama", "genres": ["short"], "generic": true},
+
+    {"text": "Epic space adventures", "genres": ["sci-fi"]},
+    {"text": "Mind-bending sci-fi", "genres": ["sci-fi"]},
+    {"text": "Dystopian futures", "genres": ["sci-fi", "drama"]},
+    {"text": "Time travel stories", "genres": ["sci-fi"]},
+    {"text": "Alien encounters", "genres": ["sci-fi"]},
+    {"text": "Virtual reality worlds", "genres": ["sci-fi"]},
+    {"text": "Robots and artificial intelligence", "genres": ["sci-fi"]},
+    {"text": "Sci-fi action spectacles", "genres": ["sci-fi", "action"]},
+
+    {"text": "High-octane action blockbusters", "genres": ["action"]},
+    {"text": "Explosive chase movies", "genres": ["action"]},
+    {"text": "Lone hero rescue missions", "genres": ["action"]},
+    {"text": "Gunfights and stunt spectacles", "genres": ["action"]},
+    {"text": "Action comedies", "genres": ["action", "comedy"]},
+    {"text": "Animated action heroes", "genres": ["animation", "action"], "kids": true},
+
+    {"text": "Laugh-out-loud comedies", "genres": ["comedy"]},
+    {"text": "Stand-up and comedy club stories", "genres": ["comedy"]},
+    {"text": "Witty satire and parody", "genres": ["comedy"]},
+    {"text": "Slapstick fun", "genres": ["comedy"], "kids": true},
+    {"text": "Feel-good love stories", "genres": ["comedy", "drama"]},
+    {"text": "Quirky comedy dramas", "genres": ["comedy", "drama"]},
+
+    {"text": "Emotional family dramas", "genres": ["drama", "family"]},
+    {"text": "Character-driven dramas", "genres": ["drama"]},
+    {"text": "Stories of loss and hope", "genres": ["drama"]},
+    {"text": "Redemption stories", "genres": ["drama"]},
+    {"text": "Coming-of-age stories", "genres": ["drama", "family"]},
+    {"text": "Struggles against the odds", "genres": ["drama"]},
+
+    {"text": "Animated adventures", "genres": ["animation"], "kids": true},
+    {"text": "Talking-animal adventures", "genres": ["animation", "family"], "kids": true},
+    {"text": "Funny animated comedies", "genres": ["animation", "comedy"], "kids": true},
+    {"text": "Animated movies for grown-ups", "genres": ["animation", "drama"]},
+    {"text": "Colorful animated sci-fi", "genres": ["animation", "sci-fi"], "kids": true},
+
+    {"text": "Family adventure movies", "genres": ["family"], "kids": true},
+    {"text": "Feel-good family comedies", "genres": ["family", "comedy"], "kids": true},
+    {"text": "Magical worlds and wonder", "genres": ["family", "animation"], "kids": true},
+    {"text": "Friendship adventures", "genres": ["family"], "kids": true},
+    {"text": "Growing up stories", "genres": ["family", "drama"], "kids": true},
+
+    {"text": "Mind-bending puzzle films", "genres": ["sci-fi", "drama"]},
+    {"text": "Retro 60s and 70s favorites", "genres": []},
+    {"text": "80s and 90s favorites", "genres": []},
+    {"text": "Recent releases", "genres": []},
+    {"text": "Cozy rainy-night picks", "genres": ["drama", "comedy"]},
+    {"text": "Bite-sized vertical dramas", "genres": ["short"]}
+  ]
+}

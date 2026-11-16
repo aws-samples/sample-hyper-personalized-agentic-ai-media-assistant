@@ -1,0 +1,10 @@
+# Pinned: aws_sdk_bedrock_runtime 0.10.0 (2026-08-20) renamed `Config` ->
+# `AsyncBedrockRuntimeConfig`, which breaks strands' bidi Nova Sonic import
+# (`from aws_sdk_bedrock_runtime.config import Config`). 0.9.0 is the last version
+# with `Config`, and is the pair strands-agents 1.53.0 expects. Keep these pinned
+# together; bump both only after verifying the bidi import still resolves.
+strands-agents[bidi-all]==1.53.0    # Bidirectional voice agent framework (Nova Sonic)
+aws_sdk_bedrock_runtime==0.9.0       # AWS Bedrock bidirectional streaming SDK (pre-`Config` rename)
+bedrock-agentcore                    # AgentCore runtime contract / deployment
+fastapi                              # WebSocket app
+uvicorn[standard]                    # ASGI server (includes websockets)

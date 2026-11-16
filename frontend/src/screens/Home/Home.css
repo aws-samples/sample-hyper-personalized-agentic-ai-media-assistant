@@ -1,0 +1,569 @@
+.home-screen {
+  background: var(--bg-1);
+  /* This screen is the vertical scroll container (overrides .screen overflow). */
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ================= TV top navigation ================= */
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px var(--pad);
+  background: linear-gradient(180deg, rgba(8, 8, 12, 0.9) 0%, rgba(8, 8, 12, 0) 100%);
+}
+.topnav-left,
+.topnav-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: var(--title-md);
+}
+.brand-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--accent-grad);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+.nav-tab {
+  font-size: var(--body);
+  font-weight: 600;
+  color: var(--text-mid);
+  cursor: pointer;
+}
+.nav-tab.active {
+  color: var(--text-hi);
+}
+.nav-tab:hover {
+  color: var(--text-hi);
+}
+.nav-icon {
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  line-height: 1;
+}
+.nav-avatar-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.nav-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+}
+.nav-caret {
+  font-size: 20px;
+  line-height: 1;
+  color: var(--text-hi);
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+.nav-avatar-trigger:hover .nav-caret {
+  color: var(--text-hi);
+}
+.nav-avatar-trigger.open .nav-caret {
+  transform: rotate(180deg);
+  color: var(--text-hi);
+}
+
+/* ---- Profile switcher menu ---- */
+.profile-switch {
+  position: relative;
+}
+.switch-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+}
+.switch-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 50;
+  width: 260px;
+  background: var(--bg-2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-lg);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  animation: fadeUp 0.18s ease;
+}
+.switch-head {
+  font-size: var(--small);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-lo);
+  padding: 8px 10px 6px;
+}
+.switch-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 10px;
+  border-radius: 10px;
+  text-align: left;
+}
+.switch-item:hover {
+  background: var(--bg-3);
+}
+.switch-item.on {
+  background: var(--bg-3);
+}
+.switch-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  font-size: 19px;
+  flex: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+.switch-copy {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.switch-name {
+  font-weight: 700;
+  font-size: var(--body);
+  color: var(--text-hi);
+}
+.switch-persona {
+  font-size: var(--small);
+  color: var(--text-lo);
+}
+.switch-check {
+  color: var(--accent);
+  font-weight: 800;
+}
+.switch-signout {
+  margin-top: 6px;
+  padding: 10px;
+  border-top: 1px solid var(--border);
+  font-weight: 700;
+  font-size: var(--small);
+  color: var(--text-mid);
+  text-align: center;
+}
+.switch-signout:hover {
+  color: var(--text-hi);
+}
+
+/* ================= Hero ================= */
+.hero {
+  position: relative;
+}
+.hero.tv {
+  min-height: 470px;
+  margin-top: -84px; /* tuck image under the transparent topnav */
+  padding-top: 84px; /* ...but keep hero text clear of the nav zone */
+  display: flex;
+  align-items: flex-end;
+}
+.hero.mobile {
+  min-height: 440px;
+  display: flex;
+  align-items: flex-end;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+/* Real movie poster as hero backdrop (live personas). */
+.hero-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+}
+.hero-scrim.tv {
+  background: linear-gradient(90deg, rgba(8, 8, 12, 0.95) 0%, rgba(8, 8, 12, 0.5) 42%, rgba(8, 8, 12, 0) 70%),
+    linear-gradient(0deg, var(--bg-1) 2%, rgba(8, 8, 12, 0) 40%);
+}
+.hero-scrim.mobile {
+  background: linear-gradient(0deg, var(--bg-1) 3%, rgba(8, 8, 12, 0.2) 55%, rgba(8, 8, 12, 0.55) 100%);
+}
+
+.hero-info {
+  position: relative;
+  z-index: 1;
+  padding: var(--pad);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeUp 0.45s ease;
+}
+.hero.tv .hero-info {
+  max-width: 620px;
+  padding-bottom: 30px;
+  padding-left: var(--pad);
+}
+.hero.mobile .hero-info {
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.hero-badges {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+/* Keep each badge phrase on a single line; on the narrow mobile frame let the
+   two badges stack (one clean line each) instead of breaking mid-phrase. */
+.hero.mobile .hero-badges {
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 4px;
+}
+.hero-league {
+  font-size: var(--small);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-mid);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.hero-rank {
+  font-size: var(--small);
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.hero-title {
+  font-size: var(--title-xl);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-shadow: 0 3px 22px rgba(0, 0, 0, 0.55);
+}
+.hero-synopsis {
+  font-size: var(--body);
+  color: var(--text-mid);
+  line-height: 1.45;
+  max-width: 520px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.hero.mobile .hero-synopsis {
+  display: none;
+}
+.hero-why {
+  font-size: var(--body);
+  color: var(--text-hi);
+  line-height: 1.4;
+  max-width: 520px;
+}
+.hero.mobile .hero-why {
+  font-size: var(--small);
+}
+
+/* Score ticker */
+.score-ticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--title-md);
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 12px;
+  width: fit-content;
+}
+.hero.mobile .score-ticker {
+  margin: 0 auto;
+}
+.st-team {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.st-team b {
+  font-weight: 900;
+}
+.st-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+}
+.st-sep {
+  color: var(--text-lo);
+}
+.st-clock {
+  font-size: var(--small);
+  font-weight: 700;
+  color: var(--live);
+  margin-left: 6px;
+  padding-left: 12px;
+  border-left: 1px solid var(--border-strong);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+.hero.mobile .hero-actions {
+  width: 100%;
+  justify-content: center;
+}
+
+.hero-dots {
+  display: flex;
+  gap: 7px;
+  margin-top: 6px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+}
+.dot.on {
+  background: var(--accent);
+  width: 22px;
+  border-radius: 999px;
+}
+
+/* ================= Rows ================= */
+.home-rows {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  padding: 8px 0 40px;
+}
+.home-screen.tv .home-rows {
+  margin-top: -30px;
+}
+
+/* ================= Mobile chrome ================= */
+.mobile-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 44px var(--pad) 10px;
+  background: linear-gradient(180deg, var(--bg-1) 55%, rgba(13, 13, 18, 0) 100%);
+}
+.mobile-top-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.filter-row {
+  display: flex;
+  gap: 8px;
+  padding: 4px var(--pad) 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  background: var(--bg-1);
+}
+.filter-row::-webkit-scrollbar {
+  display: none;
+}
+
+.bottom-nav {
+  position: sticky;
+  bottom: 0;
+  z-index: 30;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 6px 22px;
+  background: rgba(13, 13, 18, 0.92);
+  backdrop-filter: blur(14px);
+  border-top: 1px solid var(--border);
+}
+.bn-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  color: var(--text-lo);
+}
+.bn-item.on {
+  color: var(--text-hi);
+}
+.bn-icon {
+  font-size: 20px;
+}
+.bn-label {
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* ---- Live Now rail (Sports Fan) ---- */
+.live-now {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.live-now-title {
+  font-size: var(--title-md);
+  font-weight: 700;
+  padding: 0 var(--pad);
+}
+.live-now-track {
+  display: flex;
+  gap: var(--rail-gap);
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0 var(--pad) 4px;
+}
+.live-now-track::-webkit-scrollbar {
+  display: none;
+}
+.live-card {
+  flex: none;
+  width: 300px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform 0.14s ease;
+}
+.device-tv .live-card {
+  width: 420px;
+}
+.live-card:hover {
+  transform: translateY(-3px);
+}
+.live-card-art {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.live-card-art .badge-live {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.live-card-score {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--title-md);
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+/* "Because you follow <player>" clip cards — minute badge + play affordance. */
+/* Vertical highlight frame grab fills the 2:3 card art. */
+.follow-hl-rail .follow-hl-thumb-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+/* Type/GOAL chip, top-left. */
+.follow-hl-rail .follow-hl-chip {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 3px 7px;
+  border-radius: 5px;
+}
+.follow-hl-rail .follow-hl-chip.goal {
+  background: var(--live, #e5231b);
+}
+/* Bottom caption: player name + minute·type over a scrim, like a real
+   vertical highlight thumbnail. */
+.follow-hl-rail .follow-hl-cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 26px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+}
+.follow-hl-rail .follow-hl-cap-name {
+  font-size: var(--body);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #fff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+.follow-hl-rail .follow-hl-cap-sub {
+  font-size: var(--small);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+}
+.follow-hl-rail .follow-hl-play {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(4px);
+}
+.live-card-name {
+  font-weight: 700;
+  font-size: var(--body);
+  color: var(--text-hi);
+  padding: 0 2px;
+}
+.live-card-sub {
+  font-size: var(--small);
+  color: var(--text-lo);
+  padding: 0 2px;
+}

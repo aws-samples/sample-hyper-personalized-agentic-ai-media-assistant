@@ -1,0 +1,9 @@
+strands-agents
+strands-agents-tools
+bedrock-agentcore[strands-agents]
+bedrock-agentcore-starter-toolkit
+boto3
+opensearch-py
+requests
+numpy
+pycognito

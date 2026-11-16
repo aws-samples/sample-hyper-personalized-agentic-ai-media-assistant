@@ -1,0 +1,31 @@
+{
+  "_comment": "Genre values a viewer may exclude (L3 excluded_genres). Static on purpose: edit this file when the catalog's genre taxonomy changes, then deploy. Ids must match the catalog's `genres` values, lowercased. Seeded 2026-10-11 from the us-west-2 catalog (26 values).",
+  "genres": [
+    {"id": "action", "label": "Action"},
+    {"id": "adventure", "label": "Adventure"},
+    {"id": "animation", "label": "Animation"},
+    {"id": "biography", "label": "Biography"},
+    {"id": "comedy", "label": "Comedy"},
+    {"id": "crime", "label": "Crime"},
+    {"id": "documentary", "label": "Documentary"},
+    {"id": "drama", "label": "Drama"},
+    {"id": "family", "label": "Family"},
+    {"id": "fantasy", "label": "Fantasy"},
+    {"id": "game-show", "label": "Game Show"},
+    {"id": "history", "label": "History"},
+    {"id": "horror", "label": "Horror"},
+    {"id": "music", "label": "Music"},
+    {"id": "musical", "label": "Musical"},
+    {"id": "mystery", "label": "Mystery"},
+    {"id": "news", "label": "News"},
+    {"id": "reality-tv", "label": "Reality TV"},
+    {"id": "romance", "label": "Romance"},
+    {"id": "sci-fi", "label": "Sci-Fi"},
+    {"id": "short", "label": "Short"},
+    {"id": "sport", "label": "Sport"},
+    {"id": "talk-show", "label": "Talk Show"},
+    {"id": "thriller", "label": "Thriller"},
+    {"id": "war", "label": "War"},
+    {"id": "western", "label": "Western"}
+  ]
+}
